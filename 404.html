@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page not found! - Realinspirer</title>
+    <link rel="icon" href="/Images/logo.svg">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="/Scripts/script.js"></script>
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/Styles/Hamburger_nav_icon_style.css">
+    <link rel="stylesheet" href="/Styles/Footer.css">
+    <link rel="stylesheet" href="/Styles/Hire_div.css">
+    <link rel="stylesheet" href="/Styles/404_style.css">
+
+    
+</head>
+<body>
+    <!-- header -->
+    <div class="logo_div">
+        <img class="logo_img" src="/Images/logo.svg" onclick="window.open('/', '_self')" alt="">
+        <div class="Main_links_div">
+            <a class="Main_links active" href="/"><span>HOME</span></a>
+            <a class="Main_links donate" href="/Donate/"><span>DONATE</span></a>
+            <a class="Main_links" href="/Games/"><span>GAMES</span></a>
+            <a class="Main_links" href="/Projects/"><span>PROJECTS</span></a>
+            <a class="Main_links" href="/Apps/"><span>APPS</span></a>
+            <a class="Main_links" href="/About_me/"><span>ABOUT ME</span></a>
+            <a class="Main_links icon" id="nav_bar" onclick="open_close_nav()">
+                <i class="bars">
+                    <svg class="ham hamRotate ham7" id="ham_icon" viewBox="-1 -7 100 100" width="40">
+                        <path
+                              class="line top"
+                              d="m 70,33 h -40 c 0,0 -6,1.368796 -6,8.5 0,7.131204 6,8.5013 6,8.5013 l 20,-0.0013" />
+                        <path
+                              class="line middle"
+                              d="m 70,50 h -40" />
+                        <path
+                              class="line bottom"
+                              d="m 69.575405,67.073826 h -40 c -5.592752,0 -6.873604,-9.348582 1.371031,-9.348582 8.244634,0 19.053564,21.797129 19.053564,12.274756 l 0,-40" />
+                      </svg>
+                </i>
+            </a>
+            <!-- &#8801; -->
+        </div>
+        <div class="not_visible" id="verticle_menu" tabindex="0">
+            <a class="Main_links active" href="/"><span>HOME</span></a>
+            <a class="Main_links donate" href="/Donate/"><span>DONATE</span></a>
+            <a class="Main_links" href="/Games/"><span>GAMES</span></a>
+            <a class="Main_links" href="/Projects/"><span>PROJECTS</span></a>
+            <a class="Main_links" href="/Apps/"><span>APPS</span></a>
+            <a class="Main_links" href="/About_me/"><span>ABOUT ME</span></a>
+        </div>
+    </div>
+    <!-- header end -->
+
+    <div class="not_found_parent">
+        <p class="title">404</p>
+        <p class="subtitle">This page is either in development,<br> or 
+            does not exist!
+        </p>
+        <a class="normal_button" href="/">Go back to home page</a>
+    </div>
+
+
+    <!-- footer section -->
+    <div class="footer_div">
+        <div class="footer_logo">
+            <img class="footer_img" src="/Images/logo_light.svg" alt="footer_img">
+            <p class="footer_logo_title">REALINSPIRER
+                <span><br>IMAGINE AND CREATE</span>
+            </p>
+        </div>
+
+        <div class="footer_links_parent">
+            <div class="footer_links_section">
+                <p class="footer_links_title">Contact</p>
+                <ul class="footer_links_list">
+                    <li><a href="mailto:realinspirer@outlook.com">Email</a></li>
+                </ul>
+            </div>
+            <div class="footer_links_section">
+                <p class="footer_links_title">Socials</p>
+                <ul class="footer_links_list">
+                    <li><a href="https://www.youtube.com/@Realinspirer?sub_confirmation=1" rel="noopener" target="_blank">YouTube</a></li>
+                    <li><a href="https://realinspirer.itch.io/" rel="noopener" target="_blank">Itch.io</a></li>
+                    <li><a href="https://github.com/Realinspirer/" rel="noopener" target="_blank">Github</a></li>
+                </ul>
+            </div>
+            <div class="footer_links_section">
+                <p class="footer_links_title">Creations</p>
+                <ul class="footer_links_list">
+                    <li><a href="/Games/">Games</a></li>
+                    <li><a href="/Apps/">Apps</a></li>
+                    <li><a href="/Projects/#Designs">Designs</a></li>
+                </ul>
+                <ul class="footer_links_list footer_links_margin">
+                    <li><a href="/Projects/#Animations">Animations</a></li>
+                    <li><a href="/Projects/#3D">3D</a></li>
+                    <li><a href="/Projects/">..and much more</a></li>
+                </ul>
+            </div>
+            <div class="footer_links_section">
+                <p class="footer_links_title">More links</p>
+                <ul class="footer_links_list">
+                    <li><a href="/About_me/">About me</a></li>
+                    <li><a href="/Donate/">Donate</a></li>
+                </ul>
+            </div>
+            <div class="footer_links_section">
+                <p class="footer_links_title">Hire me</p>
+                <ul class="footer_links_list">
+                    <li><a href="https://www.linkedin.com/in/realinspirer/" rel="noopener" target="_blank">Linkedin</a></li>
+                    <li>Freelancer</li>
+                    <li><a href="mailto:realinspirer@outlook.com">Email</a></li>
+                </ul>
+            </div>
+            
+        </div>
+        <p class="github_thing_footer">This site is hosted on Github pages
+            <span><a href="https://github.com/Realinspirer/realinspirer.github.io" target="_blank" rel="noopener"><br>Check out the site repository</a></span>
+        </p>
+        <div class="separator_footer"></div>
+        <p class="copyright_thing_footer">This website is fully designed by Realinspirer
+            <span><br>©️ Realinspirer 2024, All rights reserved</span>
+        </p>
+    </div>
+    <!-- footer section end -->
+
+</body>
+</html>
