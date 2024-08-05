@@ -34,8 +34,9 @@ body{
 
     width: 7em;
     height: 0.1em;
+    pointer-events: none;
 
-    transition: width var(--base_anim_speed);
+    transition: width var(--base_anim_speed) cubic-bezier(.12,1.67,.52,1.86);
 }
 .Middle_section_text:hover::after{
     width: 9em;
