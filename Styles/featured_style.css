@@ -2,6 +2,11 @@
     margin: 0;
     padding: 0;
 }
+body{
+    --project_title_color:#474747ff;
+    --project_subtitle_color:#676767ff;
+    --project_date_color:#8f8f8fff;
+}
 .featured_parent{
     height: 38em;
     position: relative;
@@ -50,7 +55,7 @@
     margin-right: 1em;
 }
 .featured_parent .title_div .title{
-    color: #474747ff;
+    color: var(--project_title_color);
     font-family: LT_Medium;
     font-size: 3em;
     line-height: 1.1em;
@@ -59,12 +64,12 @@
 .featured_parent .title_div .subtitle{
     margin-top: 0.6em;
     font-family: LT_light;
-    color: #676767ff;
+    color: var(--project_subtitle_color);
     font-size: 1.3em;
 }
 .featured_parent .title_div .date{
     margin-bottom: 0.25em;
-    color: #8f8f8fff;
+    color: var(--project_date_color);
     font-family: LT_light;
     font-size: 1.15em;
 }
@@ -144,6 +149,6 @@
         /* width: 180%; */
         /* background-repeat: repeat-x; */
         /* background-origin: 0 0; */
-        background-position: 0em 0; 
+        /* background-position: 0em 0; */
     }
 }
