@@ -157,12 +157,16 @@ body{
     text-underline-offset: 0.15em;
     transition: color var(--base_anim_speed);
     color: var(--desc_color_a);
+    font-family: inherit;
+    border: none;
+    background-color: transparent;
 
     font-size: 1.2em;
 }
 .normal_link:hover{
     color: var(--desc_color_a_hover);
 }
+
 
 /* links end */
 

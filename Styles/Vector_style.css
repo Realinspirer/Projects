@@ -1,6 +1,7 @@
 .Middle_section_text.vector_section{
     --def_line_width:4.5em;
     --hover_line_width:6.8em;
+    scroll-margin-top: 2.9em;
 }
 
 :where(.vector_grid, .vector_grid *){
@@ -17,12 +18,14 @@
     
     --normal_link_margin_top:1.5em;
 
+
     font-size: 1rem;
     font-size: 0.85rem;
     font-size: clamp(0.85rem, 0.509rem + 0.545vw, 1rem);
 }
 .vector_grid .vector_grid_item{
-    min-height: 10em;
+    height: 100%;
+    width: 100%;
     background-color: white;
     border-radius: 1.3em;
     padding: 1.2em;
@@ -30,6 +33,20 @@
     display: grid;
     grid-template-rows: auto 1fr;
     gap: 1em;
+
+    animation: animate_in 0.5s forwards;
+}
+@keyframes animate_in {
+    from{
+        /* height: 0; */
+        opacity: 0;
+        transform: translateY(2em);
+
+    }
+    to{
+        opacity: 1;
+        transform: none;
+    }
 }
 .vector_grid_item .img_desc{
     min-height: 5em;
@@ -83,7 +100,28 @@
 .vector_grid .desc{
     font-size: 1.16em;
     margin: 0 1em;
-    color: var(--project_subtitle_color);
+    color: #797979;
+}
+
+:where(.load_button_parent, .load_button_parent *){
+    margin: initial;
+    padding: initial;
+    font-style: italic;
+}
+.load_button_parent{
+    margin: 1.2em var(--margin_sides);
+    font-size: 1rem;
+    font-size: 0.78rem;
+    font-size: clamp(0.78rem, 0.722rem + 0.309vw, 1rem);
+
+    font-family: LT_light;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    gap:1.25em;
+}
+.load_button_parent .normal_link.hidden{
+    display: none;
 }
 
 @media screen and (max-width:1000px) {
