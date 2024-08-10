@@ -10,8 +10,6 @@ html.viewer_active{
     height: 100vh;
     height: 100dvh;
 
-    height: calc(var(--vh, 1vh) * 100);
-    
     width: 100vw;
 
     position: fixed;
