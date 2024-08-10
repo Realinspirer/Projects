@@ -8,6 +8,7 @@ html.viewer_active{
 }
 .viewer_parent{
     height: 100vh;
+    height: 100dvh;
     width: 100vw;
 
     position: fixed;
@@ -207,7 +208,7 @@ html.viewer_active{
     animation: 0.4s normal_fade_in var(--fade_anim_time) backwards;
     overflow: hidden;
 
-    height: 100vh;
+    height: 100%;
 
     position: -webkit-sticky;
     position: sticky;
