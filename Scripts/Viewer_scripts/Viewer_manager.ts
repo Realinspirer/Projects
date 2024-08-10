@@ -51,6 +51,8 @@ const viewer_manager = (function (){
 
         document.documentElement.classList.add("viewer_active");
         main_viewer.scrollTop = 0;
+
+        assign_scroll_data_set();
     }
 
     function add_not_visible_class(ev:TransitionEvent){
@@ -66,6 +68,7 @@ const viewer_manager = (function (){
         document.documentElement.classList.remove("viewer_active");
 
         main_viewer.addEventListener("transitionend", add_not_visible_class);
+        assign_scroll_data_set();
     }
 
     function next_btn_clicked(){
