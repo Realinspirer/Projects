@@ -25,21 +25,24 @@ html.viewer_active{
     font-size: 0.78rem;
     font-size: clamp(0.78rem, 0.572rem + 0.476vw, 1rem);
 
-    animation: normal_fade_in var(--base_anim_speed);
-
-}
-
-.viewer_div{
-    height: 100%;
-    width: 100%;
-
-    height: 100svh;
-    
-    
     background-color: #2b2b2b76;
 
     -webkit-backdrop-filter: blur(0.3em);
     backdrop-filter: blur(0.35em);
+
+    animation: normal_fade_in var(--base_anim_speed);
+
+}
+
+.viewer_parent .viewer_above{
+    position: relative;
+    height: 100svh;
+    width:100%;
+}
+.viewer_div{
+    height: 100%;
+    width: 100%;
+
 
 
     -webkit-overscroll-behavior: contain;
@@ -52,9 +55,8 @@ html.viewer_active{
 
     font-family: LT_light;
 
-    animation: normal_fade_in var(--fade_anim_time);
+    /* animation: normal_fade_in var(--fade_anim_time); */
 }
-
 .viewer_div .viewer_side{
     background-color: #efefefde;
     padding: 3em 2.5em 3em 2.5em;
@@ -268,7 +270,7 @@ html.viewer_active{
     opacity: 0;
 }
 
-.viewer_parent.hiddens .viewer_div{
+.viewer_parent.hiddens{
     transition: opacity var(--base_anim_speed) var(--rev_time);
     opacity: 0;
 }

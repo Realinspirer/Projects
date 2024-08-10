@@ -39,15 +39,15 @@ const viewer_manager = (function () {
         assign_scroll_data_set();
     }
     function add_not_visible_class(ev) {
-        if ((ev.target) == main_viewer) {
+        if ((ev.target) == viewer_parent) {
             viewer_parent.classList.add("not_visible");
-            main_viewer.removeEventListener("transitionend", add_not_visible_class);
+            viewer_parent.removeEventListener("transitionend", add_not_visible_class);
         }
     }
     function close_viewer() {
         viewer_parent.classList.add("hiddens");
         document.documentElement.classList.remove("viewer_active");
-        main_viewer.addEventListener("transitionend", add_not_visible_class);
+        viewer_parent.addEventListener("transitionend", add_not_visible_class);
         assign_scroll_data_set();
     }
     function next_btn_clicked() {

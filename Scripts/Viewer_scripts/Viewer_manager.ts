@@ -55,9 +55,9 @@ const viewer_manager = (function (){
     }
 
     function add_not_visible_class(ev:TransitionEvent){
-        if(<HTMLElement>(ev.target) == main_viewer){
+        if(<HTMLElement>(ev.target) == viewer_parent){
             viewer_parent.classList.add("not_visible");
-            main_viewer.removeEventListener("transitionend", add_not_visible_class);
+            viewer_parent.removeEventListener("transitionend", add_not_visible_class);
         }
         
         
@@ -66,7 +66,7 @@ const viewer_manager = (function (){
         viewer_parent.classList.add("hiddens");
         document.documentElement.classList.remove("viewer_active");
 
-        main_viewer.addEventListener("transitionend", add_not_visible_class);
+        viewer_parent.addEventListener("transitionend", add_not_visible_class);
         assign_scroll_data_set();
     }
 
