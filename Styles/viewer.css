@@ -8,7 +8,7 @@ html.viewer_active{
 }
 .viewer_parent{
     height: 100vh;
-    height: 100dvh;
+    height: 100svh;
     width: 100vw;
 
     position: fixed;
