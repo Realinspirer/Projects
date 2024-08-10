@@ -7,14 +7,16 @@ html.viewer_active{
     
 }
 .viewer_parent{
-    height: 100vh;
+    /* height: 100vh;
     height: 100dvh;
 
-    width: 100vw;
+    width: 100vw; */
 
     position: fixed;
     bottom: 0;
     right: 0;
+    top: 0;
+    left: 0;
     z-index: 100;
 
     --fade_anim_time: var(--base_anim_speed);
@@ -36,7 +38,7 @@ html.viewer_active{
 
 .viewer_parent .viewer_above{
     position: relative;
-    height: 100svh;
+    height: 100%;
     width:100%;
 }
 .viewer_div{
