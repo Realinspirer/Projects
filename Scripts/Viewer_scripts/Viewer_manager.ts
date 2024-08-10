@@ -34,7 +34,13 @@ const viewer_manager = (function (){
             viewer_parent.dataset.scroll_current = main_viewer.scrollTop.toString();
         }
     }
-    
+
+    window.addEventListener("scroll", set_vh);
+    set_vh();
+    function set_vh(){
+        let vh = window.innerHeight * 0.01;
+        viewer_parent.style.setProperty('--vh', `${vh}px`);
+    }
 
     function open_viewer(data:project_vector_img_class, index:number){
         
@@ -95,4 +101,5 @@ const viewer_manager = (function (){
     return{
         open_viewer:open_viewer
     }
+    
 })();

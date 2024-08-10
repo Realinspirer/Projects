@@ -8,7 +8,10 @@ html.viewer_active{
 }
 .viewer_parent{
     height: 100vh;
-    height: 100svh;
+    height: 100dvh;
+
+    height: calc(var(--vh, 1vh) * 100);
+    
     width: 100vw;
 
     position: fixed;
