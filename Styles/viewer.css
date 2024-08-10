@@ -1,0 +1,423 @@
+:where(.viewer_parent, .viewer_parent *){
+    padding: initial;
+    margin: initial;
+}
+html.viewer_active{
+    overflow: hidden;
+    
+}
+.viewer_parent{
+    height: 100vh;
+    width: 100vw;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+
+    --fade_anim_time: var(--base_anim_speed);
+
+    font-size: 1rem;
+    font-size: 0.82rem;
+    font-size: clamp(0.82rem, 0.411rem + 0.655vw, 1rem);
+    font-size: 0.78rem;
+    font-size: clamp(0.78rem, 0.572rem + 0.476vw, 1rem);
+
+    animation: normal_fade_in var(--base_anim_speed);
+
+}
+
+.viewer_div{
+    height: 100%;
+    width: 100%;
+    
+    
+    background-color: #2b2b2b76;
+
+    -webkit-backdrop-filter: blur(0.3em);
+    backdrop-filter: blur(0.35em);
+
+
+    -webkit-overscroll-behavior: contain;
+    overscroll-behavior: contain;
+    overflow-y: auto;
+
+
+    display: grid;
+    grid-template-columns: 0.4fr 1fr;
+
+    font-family: LT_light;
+
+    animation: normal_fade_in var(--fade_anim_time);
+}
+
+.viewer_div .viewer_side{
+    background-color: #efefefde;
+    padding: 3em 2.5em 3em 2.5em;
+    display: flex;
+    flex-flow: column;
+    
+    justify-content: center;
+    gap: 0.3em;
+    position: relative;
+
+    animation: 0.5s slide_in var(--fade_anim_time) backwards;
+    
+}
+@keyframes slide_in {
+    from{
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.viewer_div .date{
+    font-size: 1.1em;
+    color: #2d2d2dff;
+}
+.viewer_div .title{
+    color: #2f2f2fff;
+    font-size: 2.75em;
+}
+.viewer_div .desc{
+    color: #636363ff;
+    font-size: 1.2em;
+    margin-top: 1em;
+}
+.viewer_div .normal_button{
+    margin-top: 1.5em;
+    font-size: 1.2em;
+    /* align-self: center; */
+    background-color: #3f3f3fff;
+    color: var(--button_hover_color);
+    font-family: LT_Regular;
+    font-weight: normal;
+    border: none;
+    border-radius: 0.4em;
+}
+.viewer_div .normal_button::before{
+    background-image: linear-gradient(90deg, #f19466ff, #f1aa3dff);
+}
+.viewer_div .normal_button:hover{
+    color: #f5f5f5ff;
+}
+
+
+.viewer_div .btn_parent{
+    
+    width: 100%;
+
+    
+
+    display: flex;
+    justify-content: space-between;
+    /* gap: 5em; */
+    /* padding: 1em; */
+    margin-top: 0.8em;
+}
+
+.navigation_button{
+
+    font-size: inherit;
+
+    --accent_color: #2d2d2dff;
+
+    border: var(--accent_color) solid 1.5px;
+    background-color: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+
+    height: 3.2em;
+    width: 3.2em;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.navigation_button img{
+    height: 55%;
+    width: 55%;
+    object-fit: scale-down;
+    display:block;
+    margin:auto;
+    pointer-events: none;
+}
+.viewer_parent .close_btn{
+    position: absolute;
+    right: 2em;
+    top: 1em;
+    /* filter: drop-shadow(0 0 0.2em #b7b7b7); */
+    filter:invert(1) drop-shadow(0 0 0.2em #4d4d4d);
+    border-width: 2.5px;
+
+    animation: var(--base_anim_speed) normal_fade_in var(--fade_anim_time) backwards;
+}
+.navigation_button::after{
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+
+    height: 0;
+    width: 0;
+    opacity: 0;
+
+    border-radius: inherit;
+    z-index: -1;
+    content: "";
+    background-color: var(--accent_color);
+    transition: height var(--base_anim_speed),
+                width var(--base_anim_speed),
+                opacity var(--base_anim_speed);
+}
+.navigation_button:hover::after{
+    height: 90%;
+    width: 90%;
+    opacity: 1;
+}
+.navigation_button img{
+    transition: var(--base_anim_speed);
+}
+.navigation_button:hover img{
+    filter: invert(1);
+}
+
+
+.viewer_parent .close_btn img{
+    height: 40%;
+    width: 40%;
+}
+
+
+.viewer_div .image_holder{
+    display: grid;
+    /* grid-template-rows: 100%; */
+    justify-content: center;
+    align-items: center;
+
+    padding: 1em;
+    width: 100%;
+    /* background-color: red; */
+
+    animation: 0.4s normal_fade_in var(--fade_anim_time) backwards;
+    overflow: hidden;
+
+    height: 100vh;
+
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    
+}
+@keyframes normal_fade_in {
+    0%{
+        opacity: 0;
+        /* transform: scale(0.65); */
+    }
+    /* 50%{ */
+        /* transform: scale(1.03); */
+    /* } */
+    100%{
+        opacity: 1;
+        /* transform: none; */
+    }
+}
+.viewer_div .image_holder img{
+    grid-row-start: 1;
+    grid-column-start: 1;
+
+    /* background-color: black; */
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    overflow: hidden;
+
+}
+.viewer_div .back_blur_img{
+    z-index: -1;
+    filter: blur(5em);
+}
+
+.viewer_parent.hiddens{
+    --rev_time: 0.5s;
+}
+.viewer_parent.hiddens .viewer_div{
+    overflow-y: hidden;
+}
+.viewer_parent.hiddens .viewer_div .viewer_side{
+    transition: opacity var(--rev_time),
+                transform var(--rev_time);
+
+    opacity: 0;
+    transform: translateX(-100%);
+}
+.viewer_parent.hiddens .close_btn, 
+.viewer_parent.hiddens .big_viewer_scroll_thing_parent,
+.viewer_parent.hiddens .small_viewer_scroll_thing_parent,
+.viewer_parent.hiddens .viewer_div .image_holder{
+    transition: opacity var(--base_anim_speed);
+    opacity: 0;
+}
+
+.viewer_parent.hiddens .viewer_div{
+    transition: opacity var(--base_anim_speed) var(--rev_time);
+    opacity: 0;
+}
+.viewer_parent.hiddens{
+    animation: hide_parent calc(var(--rev_time) + var(--base_anim_speed)) forwards;
+}
+.viewer_parent.not_visible{
+    display: none;
+}
+@keyframes hide_parent {
+    to{
+        display: none;
+    }
+}
+.viewer_parent .big_viewer_scroll_thing_parent{
+    position: absolute;
+    z-index: 5;
+
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+
+    transition: opacity var(--base_anim_speed);
+}
+.viewer_parent .big_viewer_scroll_thing{
+    
+    text-align: center;
+    height: 3em;
+
+    padding-top: 1.2em;
+    font-size: 1.3em;
+    color: #404040;
+    font-family: LT_Regular;
+    background-image: linear-gradient(transparent, #d8d8d8);
+
+    opacity: 1;
+    animation: throb_effect 5s forwards infinite;
+}
+.viewer_parent[data-scroll_current="-1"] .big_viewer_scroll_thing_parent{
+    display: none;
+
+} 
+.viewer_parent:not([data-scroll_current="0"]) .big_viewer_scroll_thing_parent {
+    opacity: 0;
+}
+
+.viewer_parent .small_viewer_scroll_thing_parent{
+
+    position: absolute;
+    z-index: 5;
+    --height:4em;
+
+    top: calc(var(--height) * -1);
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+    height: var(--height);
+    transition: opacity var(--base_anim_speed);
+
+}
+.viewer_parent .small_viewer_scroll_thing{
+
+    width: 100%;
+    height: 100%;
+    
+    /* transform: translateY(-100%); */
+    text-align: center;
+    font-size: 1.3em;
+    padding-top: 1.25em;
+    color: #3a3a3a;
+    font-family: LT_Regular;
+    background-image: linear-gradient(transparent, #d2d2d2);
+
+    animation: throb_effect 5s forwards infinite;
+}
+
+.viewer_parent[data-scroll_current="-1"] .small_viewer_scroll_thing_parent{
+    display: none;
+
+} 
+.viewer_parent:not([data-scroll_current="0"]) .small_viewer_scroll_thing_parent {
+    opacity: 0;
+}
+
+@keyframes throb_effect {
+    0%, 50%, 100%{
+        opacity: 0.6;
+        transform: none;
+    }
+    25%, 75%{
+        opacity: 1;
+        transform: translateY(0.1em);
+    }
+
+}
+
+@media screen and (max-width:700px) {
+    .viewer_parent{
+        font-size: 0.87rem;
+        font-size: 0.75rem;
+        font-size: clamp(0.75rem, 0.66rem + 0.48vw, 0.87rem);
+    }
+    .viewer_div{
+        grid-template-columns: 100%;
+        grid-template-rows: 80% auto;
+    }
+    .viewer_div .viewer_side{
+        order: 1;
+        padding: 1.5em 2em 1.5em 2em;
+        background-color: #efefefe1;
+        -webkit-backdrop-filter: blur(0.4em);
+        backdrop-filter: blur(0.4em);
+    }
+    .viewer_div .desc{
+        margin-top: 0.3em;
+    }
+    .viewer_div .normal_button{
+        margin-top: 0.8em;
+    }
+    .viewer_div .title{
+        font-size: 2.1em;
+    }
+
+    .viewer_div .btn_parent{
+        display: none;
+    }
+    .viewer_parent .close_btn{
+        /* display: none; */
+        left: 1em;
+    }
+
+    .viewer_div .image_holder{
+        height: 100%;
+        padding: 1.5em 1em;
+    }
+    .viewer_parent .small_viewer_scroll_thing{
+        display: block;
+    }
+    .viewer_parent .big_viewer_scroll_thing{
+        display: none;
+    }
+    @keyframes slide_in {
+        from{
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        to{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .viewer_parent.hiddens .viewer_div .viewer_side{    
+        opacity: 0;
+        transform: translateY(100%);
+    }
+}

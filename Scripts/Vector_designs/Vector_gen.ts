@@ -1,12 +1,22 @@
-const Generate_vector_designs_section = (function(){
+class project_vector_img_class{
+    img_path:string ;
+    title:string;
+    desc:string;
+    date:string;
+    custom_style?:string|null;
 
-    class project_vector_img_class{
-        img_path:string = "";
-        title:string = "";
-        desc:string = "";
-        date:string = new Date().toDateString();
-        custom_style?:string|null;        
+    constructor(img_path:string, title:string, desc:string, date:string,
+        custom_style?:string|null
+    ){
+        this.img_path = img_path;
+        this.title = title;
+        this.desc = desc;
+        this.date = date;
+        this.custom_style = custom_style;
+
     }
+}
+const Generate_vector_designs_section = (function(){
 
     let current_index = 0;
     let add_counter:number;
@@ -98,6 +108,9 @@ const Generate_vector_designs_section = (function(){
             main_link.type = "button";
             main_link.classList.add("normal_link");
             main_link.textContent = "Show design"
+
+            let cu = current_index
+            main_link.addEventListener("click", () => viewer_manager.open_viewer(itm, cu));
             // main_link.href = "#"; ///////////////////////////////////
             links.appendChild(main_link);
             
@@ -117,6 +130,12 @@ const Generate_vector_designs_section = (function(){
             // }
             
         }
+    }
+    function get_data_count(){
+        return res_ar.length;
+    }
+    function get_data_for_index(index:number){
+        return res_ar[index];
     }
 
     function btn_checker(){
@@ -155,23 +174,26 @@ const Generate_vector_designs_section = (function(){
             btn_checker();
         }
     }
+    async function generate(file_path:string, id:string, load_more_btn:string, unload_btn_id:string, add_c:number=4){
+            
+        var response = await fetch(file_path);
+        res_ar = await response.json();
+        add_counter = add_c;
+        
+        parent = document.querySelector(`#${id}`)!;
+        load_btn = document.getElementById(load_more_btn)!;
+        unload_btn = document.getElementById(unload_btn_id)!;
+
+        load_designs();
+        load_btn.addEventListener("click", () => load_designs());
+        unload_btn.addEventListener("click", () => unload_designs());
+    }
 
     return {
-        async generate(file_path:string, id:string, load_more_btn:string, unload_btn_id:string, add_c:number=4){
-            
-            var response = await fetch(file_path);
-            res_ar = await response.json();
-            add_counter = add_c;
-            
-            parent = document.querySelector(`#${id}`)!;
-            load_btn = document.getElementById(load_more_btn)!;
-            unload_btn = document.getElementById(unload_btn_id)!;
-
-            load_designs();
-            load_btn.addEventListener("click", () => load_designs());
-            unload_btn.addEventListener("click", () => unload_designs());
-        }
-
-
+        generate: generate,
+        get_data_count: get_data_count,
+        get_data_for_index: get_data_for_index
     }
+
+    
 })();

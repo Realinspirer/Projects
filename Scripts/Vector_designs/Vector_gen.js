@@ -8,15 +8,16 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-const Generate_vector_designs_section = (function () {
-    class project_vector_img_class {
-        constructor() {
-            this.img_path = "";
-            this.title = "";
-            this.desc = "";
-            this.date = new Date().toDateString();
-        }
+class project_vector_img_class {
+    constructor(img_path, title, desc, date, custom_style) {
+        this.img_path = img_path;
+        this.title = title;
+        this.desc = desc;
+        this.date = date;
+        this.custom_style = custom_style;
     }
+}
+const Generate_vector_designs_section = (function () {
     let current_index = 0;
     let add_counter;
     let parent;
@@ -87,6 +88,8 @@ const Generate_vector_designs_section = (function () {
             main_link.type = "button";
             main_link.classList.add("normal_link");
             main_link.textContent = "Show design";
+            let cu = current_index;
+            main_link.addEventListener("click", () => viewer_manager.open_viewer(itm, cu));
             // main_link.href = "#"; ///////////////////////////////////
             links.appendChild(main_link);
             elements_added++;
@@ -101,6 +104,12 @@ const Generate_vector_designs_section = (function () {
             //     load_btn.classList.add("hidden");
             // }
         }
+    }
+    function get_data_count() {
+        return res_ar.length;
+    }
+    function get_data_for_index(index) {
+        return res_ar[index];
     }
     function btn_checker() {
         let len = elements_added_array.length;
@@ -134,19 +143,22 @@ const Generate_vector_designs_section = (function () {
             btn_checker();
         }
     }
+    function generate(file_path_1, id_1, load_more_btn_1, unload_btn_id_1) {
+        return __awaiter(this, arguments, void 0, function* (file_path, id, load_more_btn, unload_btn_id, add_c = 4) {
+            var response = yield fetch(file_path);
+            res_ar = yield response.json();
+            add_counter = add_c;
+            parent = document.querySelector(`#${id}`);
+            load_btn = document.getElementById(load_more_btn);
+            unload_btn = document.getElementById(unload_btn_id);
+            load_designs();
+            load_btn.addEventListener("click", () => load_designs());
+            unload_btn.addEventListener("click", () => unload_designs());
+        });
+    }
     return {
-        generate(file_path_1, id_1, load_more_btn_1, unload_btn_id_1) {
-            return __awaiter(this, arguments, void 0, function* (file_path, id, load_more_btn, unload_btn_id, add_c = 4) {
-                var response = yield fetch(file_path);
-                res_ar = yield response.json();
-                add_counter = add_c;
-                parent = document.querySelector(`#${id}`);
-                load_btn = document.getElementById(load_more_btn);
-                unload_btn = document.getElementById(unload_btn_id);
-                load_designs();
-                load_btn.addEventListener("click", () => load_designs());
-                unload_btn.addEventListener("click", () => unload_designs());
-            });
-        }
+        generate: generate,
+        get_data_count: get_data_count,
+        get_data_for_index: get_data_for_index
     };
 })();

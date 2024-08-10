@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="Styles/featured_style.css">
     <link rel="stylesheet" href="Styles/News_style.css">
     <link rel="stylesheet" href="Styles/Vector_style.css">
+    <link rel="stylesheet" href="Styles/viewer.css">
 
     
 </head>
@@ -183,6 +184,46 @@
         <button type="button" id="design_unload_btn" class="normal_link">Show less</button>
         <button type="button" id="design_load_more_btn" class="normal_link">Load more...</button>
     </div>
+
+    <div class="viewer_parent not_visible" id="viewer_parent">
+        <button type="button" title="Close" class="navigation_button close_btn">
+            <img alt="" src="Images/Symbols/Cross.png">
+        </button>
+
+        <div class="big_viewer_scroll_thing_parent">
+            <p class="big_viewer_scroll_thing">Scroll down for full ⬇️</p>
+        </div>
+
+        <div class="viewer_div" id="viewer_main_div">
+
+            <div class="viewer_side" id="viewer_side_panel">
+                <div class="small_viewer_scroll_thing_parent">
+                    <p class="small_viewer_scroll_thing">Scroll down for description ⬇️</p>
+                </div>
+
+                <p class="date">Uploaded date:</p>
+                <h1 class="title"></h1>
+                <p class="desc"></p>
+
+                <a class="normal_button" href="mailto:realinspirer@outlook.com">Need a designer? Let's talk!</a>
+
+                <div class="btn_parent">
+                    <button id="viewer_prev_btn" type="button" title="Previous" class="navigation_button">
+                        <img alt="" src="Images/Symbols/Previous.png">
+                    </button>
+                    <button id="viewer_next_btn" type="button" title="Next" class="navigation_button">
+                        <img alt="" src="Images/Symbols/Next.png">
+                    </button>
+                    
+                </div>
+
+            </div>
+            <div class="image_holder">
+                <img alt="main_img" class="main_img" src="Images/Designs/0.png">
+                <img alt="" class="back_blur_img" src="Images/Designs/0.png">
+            </div>
+        </div>
+    </div>
     
     <!-- vector section end -->
 
@@ -267,5 +308,6 @@
 </body>
 
 <script src="Scripts/Vector_designs/Vector_gen.js"></script>
+<script src="Scripts/Viewer_scripts/Viewer_manager.js"></script>
 <script src="Scripts/script.js"></script>
 </html>
