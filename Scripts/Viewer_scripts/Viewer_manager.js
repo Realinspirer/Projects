@@ -28,7 +28,6 @@ const viewer_manager = (function () {
     }
     function open_viewer(data, index) {
         current_index = index;
-        console.log(current_index);
         imgs.forEach((im) => im.src = data.img_path);
         title.textContent = data.title;
         desc.textContent = data.desc;
@@ -38,9 +37,16 @@ const viewer_manager = (function () {
         document.documentElement.classList.add("viewer_active");
         main_viewer.scrollTop = 0;
     }
+    function add_not_visible_class(ev) {
+        if ((ev.target) == main_viewer) {
+            viewer_parent.classList.add("not_visible");
+            main_viewer.removeEventListener("transitionend", add_not_visible_class);
+        }
+    }
     function close_viewer() {
         viewer_parent.classList.add("hiddens");
         document.documentElement.classList.remove("viewer_active");
+        main_viewer.addEventListener("transitionend", add_not_visible_class);
     }
     function next_btn_clicked() {
         current_index++;

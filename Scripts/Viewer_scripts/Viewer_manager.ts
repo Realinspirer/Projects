@@ -39,7 +39,6 @@ const viewer_manager = (function (){
     function open_viewer(data:project_vector_img_class, index:number){
         
         current_index = index;
-        console.log(current_index);
         
         imgs.forEach((im) => im.src = data.img_path);
         title.textContent = data.title;
@@ -48,12 +47,25 @@ const viewer_manager = (function (){
         
         viewer_parent.classList.remove("not_visible");
         viewer_parent.classList.remove("hiddens");
+
+
         document.documentElement.classList.add("viewer_active");
         main_viewer.scrollTop = 0;
+    }
+
+    function add_not_visible_class(ev:TransitionEvent){
+        if(<HTMLElement>(ev.target) == main_viewer){
+            viewer_parent.classList.add("not_visible");
+            main_viewer.removeEventListener("transitionend", add_not_visible_class);
+        }
+        
+        
     }
     function close_viewer(){
         viewer_parent.classList.add("hiddens");
         document.documentElement.classList.remove("viewer_active");
+
+        main_viewer.addEventListener("transitionend", add_not_visible_class);
     }
 
     function next_btn_clicked(){

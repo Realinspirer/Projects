@@ -267,17 +267,10 @@ html.viewer_active{
     transition: opacity var(--base_anim_speed) var(--rev_time);
     opacity: 0;
 }
-.viewer_parent.hiddens{
-    animation: hide_parent calc(var(--rev_time) + var(--base_anim_speed)) forwards;
-}
 .viewer_parent.not_visible{
     display: none;
 }
-@keyframes hide_parent {
-    to{
-        display: none;
-    }
-}
+
 .viewer_parent .big_viewer_scroll_thing_parent{
     position: absolute;
     z-index: 5;
