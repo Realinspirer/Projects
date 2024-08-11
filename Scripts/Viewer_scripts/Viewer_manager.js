@@ -16,7 +16,7 @@ const viewer_manager = (function () {
     prev_btn.addEventListener("click", prev_btn_clicked);
     assign_scroll_data_set();
     main_viewer.addEventListener("scroll", assign_scroll_data_set);
-    main_viewer.addEventListener("resize", assign_scroll_data_set);
+    window.addEventListener("resize", assign_scroll_data_set);
     let current_index;
     function assign_scroll_data_set() {
         if (!(main_viewer.scrollHeight > main_viewer.clientHeight)) {

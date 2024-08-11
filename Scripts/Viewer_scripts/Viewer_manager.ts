@@ -22,7 +22,7 @@ const viewer_manager = (function (){
 
     assign_scroll_data_set();
     main_viewer.addEventListener("scroll", assign_scroll_data_set);
-    main_viewer.addEventListener("resize", assign_scroll_data_set);
+    window.addEventListener("resize", assign_scroll_data_set);
 
     let current_index:number;
 
