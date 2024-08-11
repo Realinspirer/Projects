@@ -70,17 +70,35 @@ const viewer_manager = (function (){
         assign_scroll_data_set();
     }
 
+    let on_scroll = false;
     function next_btn_clicked(){
+        if(on_scroll) return;
+        on_scroll = true;
         current_index++;
         check_for_overflow();
+        
+        viewer_parent.classList.add("faded");
+        viewer_parent.addEventListener("transitionend", img_scroll_anim);
+    }
+    function img_scroll_anim(){
+        
         let req_data = Generate_vector_designs_section.get_data_for_index(current_index);
         open_viewer(req_data, current_index);
+
+        viewer_parent.removeEventListener("transitionend", img_scroll_anim);
+
+        viewer_parent.classList.remove("faded");
+        on_scroll = false
     }
+
     function prev_btn_clicked(){
+        if(on_scroll) return;
+        on_scroll = true;
         current_index--;
         check_for_overflow();
-        let req_data = Generate_vector_designs_section.get_data_for_index(current_index);
-        open_viewer(req_data, current_index);
+        
+        viewer_parent.classList.add("faded");
+        viewer_parent.addEventListener("transitionend", img_scroll_anim);
     }
     function check_for_overflow(){
         let length = Generate_vector_designs_section.get_data_count();

@@ -363,6 +363,14 @@ html.viewer_active{
 
 }
 
+.viewer_parent .viewer_side *, .viewer_parent .image_holder *{
+    transition: opacity var(--base_anim_speed);
+}
+.viewer_parent.faded .viewer_side *, .viewer_parent.faded .image_holder *{
+    opacity: 0;
+}
+
+
 @media screen and (max-width:700px) {
     .viewer_parent{
         font-size: 0.87rem;
@@ -390,9 +398,6 @@ html.viewer_active{
         font-size: 2.1em;
     }
 
-    .viewer_div .btn_parent{
-        display: none;
-    }
     .viewer_parent .close_btn{
         /* display: none; */
         left: 1.5em;
