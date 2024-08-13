@@ -1,0 +1,117 @@
+:where(.game_discover, .game_discover *){
+    padding: initial;
+    margin: initial;
+}
+.Middle_section_text.assets_section{
+    --def_line_width:4.7em;
+    --hover_line_width:7.3em;
+}
+
+.game_discover{
+    min-height: 25em;
+    background-color: white;
+    margin: 0 var(--margin_sides) 0;
+    border-radius: var(--project_border_radius);
+
+    overflow: hidden;
+    
+    position: relative;
+
+    --back_width: 55%;
+
+
+    display: grid;
+    align-items: center;
+    grid-template-columns: 0.8fr 1fr;
+
+    font-size: 1rem;
+    font-size: 0.8rem;
+    font-size: clamp(0.8rem, 0.583rem + 0.464vw, 1rem);
+}
+.game_discover .image_cover{
+    position: absolute;
+    height: 100%;
+    width: var(--back_width);
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    display: block;
+
+    overflow: hidden;
+    
+}
+.game_discover .grad{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--back_width);
+    background-image: linear-gradient(90deg, transparent 40%, white);
+}
+
+.game_discover .title_div{
+    grid-column: 2;
+
+    z-index: 1;
+    position: relative;
+    
+    display: flex;
+    flex-flow: column;
+    align-items: start;
+    gap: 0.5em;
+    padding: 1.5em;   
+}
+.game_discover .title_div .desc{
+    font-family: LT_light;
+    font-size: 1.3em;
+    color: #646464;
+
+}
+.game_discover .title_div .title{
+    font-size: 2.2em;
+    color: var(--desc_title_color);
+}
+.game_discover .normal_button{
+    margin-top: 0.7em;
+    min-width: 9em;
+    font-size: 1.1em;
+    font-family: LT_light;
+}
+
+@media screen and (max-width:750px) {
+    .game_discover{
+        grid-template-columns: 100%;
+        /* grid-template-rows: 0 1fr; */
+        display: block;
+        height: 30em;
+        
+        align-items: stretch;
+
+        font-size: 0.9rem;
+        font-size: 0.73rem;
+
+        font-size: clamp(0.73rem, 0.617rem + 0.604vw, 0.9rem);
+    }
+    .game_discover .title_div .title{
+        font-size: 2em;
+        /* padding: 0 1em; */
+        font-family: LT_light;
+    }
+    .game_discover .title_div{
+        grid-row: 2;
+        grid-column: 1;
+        height: 100%;
+        align-items: center;
+        justify-content: end;
+        text-align: center;
+        /* background-color: red; */
+        padding-bottom: 2em;
+    }
+    .game_discover .image_cover, .game_discover .grad{
+        width: 100%;
+        height: 60%;
+    }
+    .game_discover .grad{
+        background-image: linear-gradient(transparent 30%, white);
+    }
+}

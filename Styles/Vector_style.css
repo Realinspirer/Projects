@@ -1,7 +1,6 @@
 .Middle_section_text.vector_section{
     --def_line_width:4.5em;
     --hover_line_width:6.8em;
-    scroll-margin-top: 2.9em;
 }
 
 :where(.vector_grid, .vector_grid *){

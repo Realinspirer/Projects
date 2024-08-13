@@ -6,6 +6,8 @@ body{
     --project_title_color:#474747ff;
     --project_subtitle_color:#676767ff;
     --project_date_color:#8f8f8fff;
+
+    --project_border_radius:1.3em;
 }
 .featured_parent{
     height: 38em;
@@ -90,6 +92,8 @@ body{
 .featured_parent .normal_button{
     margin-top: 1.5em;
     width: 10em;
+}
+.normal_button.project_style_btn{
     border-radius: 0.5em;
     background-color: #676767ff;
     color: var(--button_hover_color);
@@ -97,10 +101,10 @@ body{
     filter: drop-shadow(0 0 0.6em #a6a6a6);
     font-size: 1.17em;
 }
-.featured_parent .normal_button::before{
+.project_style_btn.normal_button::before{
     background-color: #ececec;
 }
-.featured_parent .normal_button:hover{
+.project_style_btn.normal_button:hover{
     color: #676767ff;
 }
 
