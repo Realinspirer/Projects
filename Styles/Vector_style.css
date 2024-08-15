@@ -1,3 +1,8 @@
+body{
+    --project_def_date_size: 1.1em;
+    --project_def_desc_size: 1.16em;
+    --project_def_desc_color: #797979;
+}
 .Middle_section_text.vector_section{
     --def_line_width:4.5em;
     --hover_line_width:6.8em;
@@ -80,7 +85,7 @@
 .vector_grid_item .date{
     color: var(--project_date_color);
     margin-bottom: 0.3em;
-    font-size: 1.1em;
+    font-size: var(--project_def_date_size);
 }
 .vector_grid_item .title{
     font-size: 1.8em;
@@ -97,9 +102,9 @@
     /* background-color: red; */
 }
 .vector_grid .desc{
-    font-size: 1.16em;
+    font-size: var(--project_def_desc_size);
     margin: 0 1em;
-    color: #797979;
+    color: var(--project_def_desc_color);
 }
 
 :where(.load_button_parent, .load_button_parent *){

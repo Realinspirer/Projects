@@ -61,12 +61,12 @@ body{
 
 /* news grid styling */
 
-:where(.News_grid, .News_grid *){
+:where(.Grid_3_max, .Grid_3_max *){
     padding: initial;
     margin: initial;
 }
 
-.News_grid{
+.Grid_3_max{
     display: grid;
 
     margin: 0 var(--margin_sides);
@@ -78,6 +78,8 @@ body{
     font-size: 0.85rem;
     font-size: clamp(0.85rem, 0.509rem + 0.545vw, 1rem);
 
+}
+.News_grid{
     --normal_link_margin_top:1.5em;
 }
 
@@ -178,7 +180,7 @@ body{
 
 
 @media screen and (max-width:1000px) {
-    .News_grid{
+    .Grid_3_max{
         grid-template-columns: 1fr 1fr;
         font-size: 0.95rem;
         font-size: 0.87rem;
@@ -186,7 +188,7 @@ body{
     }
 }
 @media screen and (max-width:700px) {
-    .News_grid{
+    .Grid_3_max{
         grid-template-columns: 1fr;
         font-size: 0.98rem;
         font-size: 0.8rem;

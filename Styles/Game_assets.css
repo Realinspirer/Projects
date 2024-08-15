@@ -81,9 +81,8 @@
 @media screen and (max-width:750px) {
     .game_discover{
         grid-template-columns: 100%;
-        /* grid-template-rows: 0 1fr; */
         display: block;
-        height: 30em;
+        height: 31rem;
         
         align-items: stretch;
 
@@ -109,9 +108,91 @@
     }
     .game_discover .image_cover, .game_discover .grad{
         width: 100%;
-        height: 60%;
+        height: 75%;
     }
     .game_discover .grad{
         background-image: linear-gradient(transparent 30%, white);
     }
+}
+
+/* :where(.assets_grid, .assets_grid *){
+    padding: initial;
+    margin: initial;
+} */
+
+.assets_grid{    
+    margin: var(--margin_sides);
+    margin-top: 2em;
+    --normal_link_margin_top:0.8em;
+}
+
+.asset_item{
+    background-color: white;
+    border-radius: var(--project_border_radius);
+    
+    display: grid;
+    grid-template-rows: 20em auto;
+    
+    gap: 1.5em;
+    padding: 1.2em;
+}
+
+.asset_item .img_div{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+
+    /* min-height: 15em; */
+    display: grid;
+}
+.asset_item .img_div img{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+.asset_item .desc_div{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-family: LT_light;
+    flex-flow: column;
+    gap: 0.3em;
+    margin: 0 0 1em 0;
+}
+.asset_item .desc_div .title{
+    color: var(--desc_title_color);
+    font-size: 1.85em;
+}
+.asset_item .date{
+    color: var(--project_date_color);
+    font-size: var(--project_def_date_size);
+}
+.asset_item .desc{
+    font-size: var(--project_def_desc_size);
+    color: var(--project_def_desc_color);
+    margin: 0.4em 0;
+}
+.asset_item .links{
+    gap: 2em;
+}
+/* .asset_item .links_wrapper{
+    width: 100%;
+} */
+
+.asset_item .main_img{
+    background-image: attr(data-back);
+}
+
+.overlap{
+    grid-row-start: 1;
+    grid-column-start: 1;
+}
+.blur_img{
+    filter: blur(1.5em);
+}
+.top_img{
+    z-index: 1;
 }
