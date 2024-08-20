@@ -58,15 +58,11 @@ const Generate_vector_designs_section = (function () {
             let date = document.createElement("p");
             date.classList.add("date");
             date.textContent = itm.date;
-            desc_div.append(date);
+            desc_div.appendChild(date);
             let title = document.createElement("h2");
             title.classList.add("title");
             title.textContent = itm.title;
-            desc_div.append(title);
-            let desc = document.createElement("p");
-            desc.classList.add("desc");
-            desc.textContent = itm.desc.substring(0, 80) + "...";
-            desc_div.append(desc);
+            desc_div.appendChild(title);
             let links_wrapper = document.createElement("div");
             links_wrapper.classList.add("links_wrapper");
             desc_div.appendChild(links_wrapper);

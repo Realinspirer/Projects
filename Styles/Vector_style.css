@@ -1,6 +1,6 @@
 body{
     --project_def_date_size: 1.1em;
-    --project_def_desc_size: 1.16em;
+    --project_def_desc_size: 1.15em;
     --project_def_desc_color: #797979;
 }
 .Middle_section_text.vector_section{
@@ -79,7 +79,7 @@ body{
 
 .vector_grid_item .desc_div{
     z-index: 1;
-    padding: 1em 1.5em 2em 1.5em;
+    padding: 1em 2.5em 2em 2.5em;
     color: #f2f2f2;
     text-align: center;
 
@@ -94,17 +94,11 @@ body{
     font-size: 1.6em;
 
 }
-.vector_grid .desc{
-    margin-top: 0.1em;
-    font-size: 1.15em;
-    color: #e4e4e4;
-
-}
-.vector_grid .desc, .vector_grid .date, .vector_grid .title, .vector_grid .normal_link{
+.vector_grid .date, .vector_grid .title, .vector_grid .normal_link{
     filter: drop-shadow(0 0 0.35em #323232);
 }
 .vector_grid .date{
-    font-size: 1.05em;
+    font-size: var(--project_def_date_size);
     color: #efefef;
 }
 
