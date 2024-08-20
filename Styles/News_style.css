@@ -1,11 +1,7 @@
-:where(.Middle_section_text, .Middle_section_text *){
-    padding: initial;
-    margin: initial;
-}
+
 /* used var colors from featured styles */
 
 body{
-    --section_color:#2e2e2eff;
     --desc_title_color:#464646ff;
     --desc_color_a:#5b5b5bff;
     --desc_color_a_hover:#d76a6a;
@@ -15,49 +11,6 @@ body{
     --margin_sides:clamp(0.88rem, 0.717rem + 0.87vw, 1.5rem);
 }
 
-.Middle_section_text{
-    /* background-color: red; */
-    margin: 1.5em 0.7em 1.5em;
-    text-align: center;
-    color: var(--section_color);
-    position: relative;
-
-    font-size: 2.1rem;
-    font-size: 1.6rem;
-    font-size: clamp(1.6rem, 1.468rem + 0.702vw, 2.1rem);
-    
-    --def_line_width:7em;
-    --hover_line_width:9em;
-
-    
-}
-.Middle_section_text.small{
-    font-size: 1.8rem;
-    font-size: 1.38rem;
-
-    font-size: clamp(1.38rem, 1.269rem + 0.589vw, 1.8rem);
-    scroll-margin-top: 2.9em;
-}
-.Middle_section_text::after{
-    position: absolute;
-    left: 0;
-    bottom: -0.35em;
-    right: 0;
-    margin: auto;
-    border-radius: 20em;
-    content: "";
-    background-color: var(--section_color);
-
-    width: var(--def_line_width);
-    height: 0.1em;
-    pointer-events: none;
-
-    transition: width var(--base_anim_speed) cubic-bezier(.12,1.67,.52,1.86);
-}
-
-.Middle_section_text:hover::after{
-    width: var(--hover_line_width);
-}
 
 /* news grid styling */
 

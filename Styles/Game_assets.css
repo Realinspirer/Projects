@@ -38,6 +38,8 @@
     display: block;
 
     overflow: hidden;
+
+    transition: opacity var(--base_anim_speed);
     
 }
 .game_discover .grad{
@@ -164,7 +166,7 @@
 }
 .asset_item .desc_div .title{
     color: var(--desc_title_color);
-    font-size: 1.85em;
+    font-size: 1.8em;
 }
 .asset_item .date{
     color: var(--project_date_color);

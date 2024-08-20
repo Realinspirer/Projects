@@ -15,6 +15,8 @@
 
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/Styles/Hamburger_nav_icon_style.css">
+    <link rel="stylesheet" href="/Styles/Middle_section_style.css">
+    <link rel="stylesheet" href="/Styles/Commons/Scroll_btn_style.css">
     <link rel="stylesheet" href="/Styles/Footer.css">
     <link rel="stylesheet" href="/Styles/Hire_div.css">
     <link rel="stylesheet" href="Styles/featured_style.css">
@@ -152,37 +154,41 @@
     <!-- vector section -->
     <h1 class="Middle_section_text fading_element_card small vector_section" id="Designs">Vector designs</h1>
 
-    <div id="vector_designs" class="vector_grid">
+    <div class="vector_designs_parent">
+        <button class="sc_button left" type="button" title="Scroll left">
+            <img src="/Images/Symbols/down.png" alt="">
+        </button>
+        <button class="sc_button right" type="button" title="Scroll right">
+            <img src="/Images/Symbols/down.png" alt="">
+        </button>
+        
+        <div id="vector_designs" class="vector_grid no_scroll_bar">
 
-        <!-- <div class="fading_element_card">
-            <div class="vector_grid_item">
-                <div class="img_desc">
-                    <img class="main_img" src="/Images/Designs/0.png" alt="">
-                    <img class="back_blur_img" src="/Images/Designs/0.png" alt="">
-                    <div>
-                        <p class="date">6th August 2024</p>
-                        <h1 class="title">Minimal logo design for home decor business</h1>
-                    </div>
-                </div>
+            <!-- <div class="vector_grid_item"> 
+                <img class="main_img" src="Images/Designs/10.png" alt=""/>
+                
+                
                 <div class="desc_div">
-                    <p class="desc">Lorem ipsum dolor sit amet, 
-                        consectetur adipiscing elit, sed do eiusmod 
-                        tempor incididunt ut labore et dolore magna.
-                    </p>
+                    <div class="grad">
+                        <img src="Images/Designs/10.png" alt=""/>
+                    </div>
+                    <div class="gradient"></div>
 
+                    
+                    <p class="date">20th August 2024</p>
+                    <h2 class="title">Lorem ipsum dolor</h2>
+                    <p class="desc">Lorem ipsum dolor sit amet,   consectetur adipiscing elit...</p>
+                    
                     <div class="links_wrapper">
                         <div class="links">
-                            <button type="button" class="normal_link">Show design</button>
+                            <a class="normal_link">View Design</a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div> -->
-        
-    </div>
-    <div class="load_button_parent">
-        <button type="button" id="design_unload_btn" class="normal_link">Show less</button>
-        <button type="button" id="design_load_more_btn" class="normal_link">Load more...</button>
+                
+            </div> -->
+            
+        </div>
     </div>
 
     
@@ -379,5 +385,6 @@
 
 <script src="Scripts/Vector_designs/Vector_gen.js"></script>
 <script src="Scripts/Viewer_scripts/Viewer_manager.js"></script>
+<script src="Scripts/Promotional_game_cover/Game_cover_changer.js"></script>
 <script src="Scripts/script.js"></script>
 </html>
