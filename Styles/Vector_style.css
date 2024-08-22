@@ -1,7 +1,13 @@
 body{
     --project_def_date_size: 1.1em;
     --project_def_desc_size: 1.15em;
-    --project_def_desc_color: #797979;
+
+    --vector_sec_title_color: #f2f2f2;
+    --vector_sec_filter:drop-shadow(0 0 0.35em #323232);
+    --vector_sec_date_color:#efefef;
+    --vector_sec_link_color: #eaeaea;
+    --vector_sec_link_color_hover: #d3d3d3;
+    
 }
 .Middle_section_text.vector_section{
     --def_line_width:4.5em;
@@ -80,35 +86,35 @@ body{
 .vector_grid_item .desc_div{
     z-index: 1;
     padding: 1em 2.5em 2em 2.5em;
-    color: #f2f2f2;
     text-align: center;
-
+    
     font-family: LT_light;
     position: relative;
-
+    
     display: flex;
     flex-flow: column;
     gap:0.4em;
 }
 .vector_grid_item .title{
+    color: var(--vector_sec_title_color);
     font-size: 1.6em;
 
 }
 .vector_grid .date, .vector_grid .title, .vector_grid .normal_link{
-    filter: drop-shadow(0 0 0.35em #323232);
+    filter: var(--vector_sec_filter);
 }
 .vector_grid .date{
     font-size: var(--project_def_date_size);
-    color: #efefef;
+    color: var(--vector_sec_date_color);
 }
 
 .vector_grid .normal_link{
     display: block;
-    color: white;
+    color:var(--vector_sec_link_color);
     font-size: 1.2em;
 }
 .vector_grid .normal_link:hover{
-    color: #dfdfdf;
+    color: var(--vector_sec_link_color_hover);
 }
 
 @media screen and (max-width:1000px) {

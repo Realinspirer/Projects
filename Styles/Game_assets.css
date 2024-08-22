@@ -2,6 +2,9 @@
     padding: initial;
     margin: initial;
 }
+body{
+    --game_assets_desc_color:#797979;
+}
 .Middle_section_text.assets_section{
     --def_line_width:4.7em;
     --hover_line_width:7.3em;
@@ -174,7 +177,7 @@
 }
 .asset_item .desc{
     font-size: var(--project_def_desc_size);
-    color: var(--project_def_desc_color);
+    color: var(--game_assets_desc_color);
     margin: 0.4em 0;
 }
 .asset_item .links{

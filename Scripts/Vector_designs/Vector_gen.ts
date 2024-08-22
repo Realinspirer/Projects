@@ -24,16 +24,29 @@ const Generate_vector_designs_section = (function(){
     var res_ar:Array<project_vector_img_class>;
 
     let elements_added_array:Array<HTMLElement> = [];
-    
+
     function load_designs(){
         let elements_added = 0;
-        for (current_index; current_index < res_ar.length; current_index++) {
-
+        for (current_index; current_index < res_ar.length; current_index++) 
+        {
             if(elements_added >= add_counter){
                 break;
             }
 
-            const itm = res_ar[current_index];
+            load_designs_single(res_ar[current_index]);
+
+            elements_added++;
+
+        }
+    }
+    
+    function load_designs_single(itm:project_vector_img_class){
+        // let elements_added = 0;
+        // for (current_index; current_index < res_ar.length; current_index++) {
+
+        //     if(elements_added >= add_counter){
+        //         break;
+        //     }
 
             let vector_grid_item = document.createElement("div");
             vector_grid_item.classList.add("vector_grid_item");
@@ -95,10 +108,38 @@ const Generate_vector_designs_section = (function(){
             let cu_ind = current_index;
             normal_link.addEventListener("click", () => viewer_manager.open_viewer(itm, cu_ind));
             
-            elements_added++;
+            // elements_added++;
+
+            elements_added_array.push(vector_grid_item);
             
-        }
+        // }
     }
+
+    function on_scroll(){
+        // load_designs();
+
+        let bounding_rect = elements_added_array[elements_added_array.length - 1].getBoundingClientRect();
+        let prev_bounding_rect = elements_added_array[elements_added_array.length - 2].getBoundingClientRect();
+        let inner_win = window.innerWidth;
+
+        if(bounding_rect.x - inner_win <= -(bounding_rect.width/2)){
+
+            if(current_index >= res_ar.length){
+                return;
+            }
+            else{
+                load_designs_single(get_data_for_index(current_index));
+            }
+            current_index++;
+        }
+        else if(prev_bounding_rect.x - inner_win >= 0 && elements_added_array.length > add_counter){
+            parent.removeChild(elements_added_array[elements_added_array.length - 1]);
+            elements_added_array.pop();
+            current_index--;
+        }
+        // console.log(bounding_rect.x - window.innerWidth + " " + bounding_rect.width/2);
+    }
+
     function get_data_count(){
         return res_ar.length;
     }
@@ -117,6 +158,7 @@ const Generate_vector_designs_section = (function(){
         document.querySelector<HTMLButtonElement>(right_btn_query)!.addEventListener("click", () => parent.scrollBy(150, 0));
         
         load_designs();
+        parent.addEventListener("scroll", on_scroll);
     }
 
     return {
