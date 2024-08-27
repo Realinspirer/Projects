@@ -1,27 +1,9 @@
-class project_vector_img_class{
-    img_path:string ;
-    title:string;
-    desc:string;
-    date:string;
-    custom_style?:string|null;
-
-    constructor(img_path:string, title:string, desc:string, date:string,
-        custom_style?:string|null
-    ){
-        this.img_path = img_path;
-        this.title = title;
-        this.desc = desc;
-        this.date = date;
-        this.custom_style = custom_style;
-
-    }
-}
 const Generate_vector_designs_section = (function(){
 
     let current_index = 0;
     let add_counter:number;
     let parent:HTMLElement;
-    var res_ar:Array<project_vector_img_class>;
+    var res_ar:Array<project_data_class>;
 
     let elements_added_array:Array<HTMLElement> = [];
 
@@ -40,7 +22,7 @@ const Generate_vector_designs_section = (function(){
         }
     }
     
-    function load_designs_single(itm:project_vector_img_class){
+    function load_designs_single(itm:project_data_class){
         // let elements_added = 0;
         // for (current_index; current_index < res_ar.length; current_index++) {
 

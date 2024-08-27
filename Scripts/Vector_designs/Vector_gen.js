@@ -8,15 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-class project_vector_img_class {
-    constructor(img_path, title, desc, date, custom_style) {
-        this.img_path = img_path;
-        this.title = title;
-        this.desc = desc;
-        this.date = date;
-        this.custom_style = custom_style;
-    }
-}
 const Generate_vector_designs_section = (function () {
     let current_index = 0;
     let add_counter;

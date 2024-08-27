@@ -4,6 +4,7 @@
 }
 body{
     --game_assets_desc_color:#797979;
+    --game_promo_desc_color:#646464;
 }
 .Middle_section_text.assets_section{
     --def_line_width:4.7em;
@@ -69,7 +70,7 @@ body{
 .game_discover .title_div .desc{
     font-family: LT_light;
     font-size: 1.3em;
-    color: #646464;
+    color: var(--game_promo_desc_color);
 
 }
 .game_discover .title_div .title{
@@ -200,4 +201,26 @@ body{
 }
 .top_img{
     z-index: 1;
+}
+
+
+:where(.load_button_parent, .load_button_parent *){
+    margin: initial;
+    padding: initial;
+    font-style: italic;
+}
+.load_button_parent{
+    margin: 1.2em var(--margin_sides);
+    font-size: 1rem;
+    font-size: 0.78rem;
+    font-size: clamp(0.78rem, 0.722rem + 0.309vw, 1rem);
+    
+    font-family: LT_light;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    gap:1.25em;
+}
+.load_button_parent .normal_link.hidden{
+    display: none;
 }

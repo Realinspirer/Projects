@@ -35,7 +35,7 @@ const viewer_manager = (function (){
         }
     }
 
-    function open_viewer(data:project_vector_img_class, index:number){
+    function open_viewer(data:project_data_class, index:number){
         
         current_index = index;
         
