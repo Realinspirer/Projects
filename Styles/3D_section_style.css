@@ -15,25 +15,36 @@
     gap: 1em;
     margin: 0 var(--margin_sides);
 }
-
-.item_3d{
-    background-color: white;
-    border-radius: 1.3em;
-    overflow: hidden;
+.item_3d_parent{
+    width: 100%;
+    height: 100%;
     position: relative;
-    
+    overflow: hidden;
+
     font-size: 1rem;
     font-size: 0.9rem;
     font-size: clamp(0.9rem, 0.706rem + 0.327vw, 1rem);
+
+    animation: load_more_anim var(--base_anim_speed);
 }
-.item_3d .main_img{
-    overflow: hidden;
+.item_3d{
     width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 1.3em;
+    overflow: hidden;
+    
+    display: flex;
+}
+.item_3d_parent .main_img{
+    overflow: hidden;
+    flex: 0 0 100%;
+    /* width: 100%; */
     height: 100%;
     object-fit: cover;
 }
 
-.item_3d .item_desc_parent{
+.item_3d_parent .item_desc_parent{
     position: absolute;
     top: 0;
     left: 0;
@@ -42,7 +53,7 @@
     display: flex;
     align-items: center;
 }
-.item_3d .item_desc{
+.item_3d_parent .item_desc{
     display: flex;
     flex-flow: column;
     gap: 0.4em;
@@ -52,75 +63,126 @@
     margin: 3em;
     max-width: 30em;
 }
-.item_3d .title{
+.item_3d_parent .title{
     font-size: 1.9em;
     color: var(--desc_title_color);
 }
 
-.item_3d .desc{
+.item_3d_parent .desc{
     color: var(--game_promo_desc_color);
     font-size: 1.35em;
     font-family: LT_light;
 }
-.item_3d .date{
+.item_3d_parent .date{
     /* display: none; */
     color: var(--project_date_color);
     font-size: 1.16em;
     font-family: LT_light;
     margin-bottom: 0.3em;
 }
-.item_3d .links{
+.item_3d_parent .links{
     margin-top: 1em;
     justify-content: start;
 }
-.item_3d .normal_link{
+.item_3d_parent .normal_link{
     font-size: 1.45em;
 }
 
-.item_3d.desc_down .item_desc_parent{
+.scroll_indicators{
+    position: absolute;
+    bottom: 1.5em;
+    right: 2em;
+    display: flex;
+    gap:0.35em;
+    align-items: center;
+    justify-content: center;
+    --size:0.4em;
+}
+.scroll_indicators > *{
+    -webkit-backdrop-filter:invert(0.35);
+    backdrop-filter: invert(0.35);
+    
+    height: var(--size);
+    width: var(--size);
+}
+.scroll_indicators .indi{
+    background-color: #9e9e9e71;
+    border-radius: 50%;
+    cursor: pointer;
+    
+    transition: background-color var(--base_anim_speed),
+    transform var(--base_anim_speed);
+}
+.scroll_indicators .indi:hover{
+    background-color: #9e9e9ea5;
+}
+.scroll_indicators .indi.active{
+    background-color: #cacacac0;
+    transform: scale(1.35);
+}
+
+@media (pointer: coarse)  {
+    .scroll_indicators{
+        --size:0.43em;
+        gap: 0.55em;
+    }
+}
+
+/* custom styling start */
+
+.item_3d_parent.desc_down .item_desc_parent{
     align-items: end;
 }
-.item_3d.desc_just_midd .item_desc_parent{
+.item_3d_parent.desc_just_midd .item_desc_parent{
     justify-content: center;
 }
 
-.item_3d.small_7 .item_desc_parent{
+.item_3d_parent.small_7 .item_desc_parent{
     font-size: 0.7em;
 }
-.item_3d.small_8 .item_desc_parent{
+.item_3d_parent.small_8 .item_desc_parent{
     font-size: 0.8em;
 }
-.item_3d.small_82 .item_desc_parent{
+.item_3d_parent.small_82 .item_desc_parent{
     font-size: 0.82em;
 }
-.item_3d.small_9 .item_desc_parent{
+.item_3d_parent.small_9 .item_desc_parent{
     font-size: 0.82em;
 }
 
-.item_3d.r2{
+.item_3d_parent.r2{
     grid-row: span 2;
 }
-.item_3d.c2{
+.item_3d_parent.c2{
     grid-column: span 2;
 }
-.item_3d.r3{
+.item_3d_parent.r3{
     grid-row: span 3;
 }
-.item_3d.c3{
+.item_3d_parent.c3{
     grid-column: span 3;
 }
+
+.item_3d_parent.scroll_down .scroll_indicators{
+    bottom: 0.8em;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+
+/* custom styling end */
 
 
 @media screen and (max-width:950px) {
     .custom_child_grid{
         grid-template-columns: 1fr 1fr;
     }
-    .item_3d{
+    .item_3d_parent{
         font-size: 1rem;
         font-size: 0.93rem;
         font-size: clamp(0.93rem, 0.81rem + 0.32vw, 1rem);
     }
-    .item_3d.c3{
+    .item_3d_parent.c3{
         grid-column: span 2;
     }
 }
@@ -131,18 +193,25 @@
         grid-auto-rows: 30em;
         grid-auto-rows: clamp(30em, 25em + 26.667vw, 35em);
     }
-    .item_3d.c2, .item_3d.c3{
+    .item_3d_parent.c2, .item_3d_parent.c3{
         grid-column: span 1;
     }
-    .item_3d.r2, .item_3d.r3{
+    .item_3d_parent.r2, .item_3d_parent.r3{
         grid-row: span 1;
     }
 
-    .item_3d .item_desc_parent.item_desc_parent{
+    .item_3d_parent .item_desc_parent.item_desc_parent{
         align-items: end;
         justify-content: start;
         font-size: 0.72rem;
         font-size: 0.65rem;
         font-size: clamp(0.65rem, 0.58rem + 0.373vw, 0.72rem);
+    }
+
+    .item_3d_parent .scroll_indicators{
+        bottom: 0.8em;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
     }
 }

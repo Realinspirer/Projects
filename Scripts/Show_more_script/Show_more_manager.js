@@ -33,7 +33,7 @@ class project_data_class {
 let show_more_manager = (function () {
     var _loader_element_class_instances, _loader_element_class_last_amount, _loader_element_class_added_children, _loader_element_class_unload_clicked, _loader_element_class_button_checker, _loader_element_class_return_next;
     class loader_element_class {
-        constructor(Show_more_btn, Show_less_btn, elements_adder, parent, req_data, add_amount) {
+        constructor(Show_more_btn, Show_less_btn, elements_adder, unload_fnc, parent, req_data, add_amount) {
             _loader_element_class_instances.add(this);
             this.current_index = 0;
             _loader_element_class_last_amount.set(this, 0);
@@ -41,6 +41,7 @@ let show_more_manager = (function () {
             this.Show_less_btn = Show_less_btn;
             this.Show_more_btn = Show_more_btn;
             this.elements_adder = elements_adder;
+            this.unload_fnc = unload_fnc;
             this.req_data = req_data;
             this.parent = parent;
             this.add_amount = add_amount;
@@ -63,7 +64,6 @@ let show_more_manager = (function () {
             __classPrivateFieldSet(this, _loader_element_class_last_amount, added.length, "f");
             this.current_index += added.length;
             __classPrivateFieldGet(this, _loader_element_class_added_children, "f").push(...added);
-            console.log(added.length);
             __classPrivateFieldGet(this, _loader_element_class_instances, "m", _loader_element_class_button_checker).call(this);
         }
     }
@@ -73,6 +73,9 @@ let show_more_manager = (function () {
         }
         for (let x = 0; x < __classPrivateFieldGet(this, _loader_element_class_last_amount, "f"); x++) {
             let last_ele = __classPrivateFieldGet(this, _loader_element_class_added_children, "f")[__classPrivateFieldGet(this, _loader_element_class_added_children, "f").length - 1];
+            if (this.unload_fnc != null) {
+                this.unload_fnc(last_ele);
+            }
             this.parent.removeChild(last_ele);
             __classPrivateFieldGet(this, _loader_element_class_added_children, "f").pop();
             this.current_index--;
@@ -100,13 +103,13 @@ let show_more_manager = (function () {
         return this.req_data.slice(this.current_index, last_index);
     };
     function manage_show_more(json_path_1, show_more_btn_id_1, show_less_btn_id_1, parent_of_items_1, elements_adder_1) {
-        return __awaiter(this, arguments, void 0, function* (json_path, show_more_btn_id, show_less_btn_id, parent_of_items, elements_adder, load_amount = 4) {
+        return __awaiter(this, arguments, void 0, function* (json_path, show_more_btn_id, show_less_btn_id, parent_of_items, elements_adder, unload_fnc = null, load_amount = 4) {
             var response = yield fetch(json_path);
             let res_ar = yield response.json();
             let show_more_btn = document.getElementById(show_more_btn_id);
             let show_less_btn = document.getElementById(show_less_btn_id);
             let parent = document.getElementById(parent_of_items);
-            let manager_class = new loader_element_class(show_more_btn, show_less_btn, elements_adder, parent, res_ar, load_amount);
+            let manager_class = new loader_element_class(show_more_btn, show_less_btn, elements_adder, unload_fnc, parent, res_ar, load_amount);
             manager_class.initialize_element();
         });
     }

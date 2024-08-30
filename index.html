@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="/Styles/Hamburger_nav_icon_style.css">
     <link rel="stylesheet" href="/Styles/Middle_section_style.css">
     <link rel="stylesheet" href="/Styles/Commons/Scroll_btn_style.css">
+    <link rel="stylesheet" href="/Styles/Commons/Custom_styling_setter.css">
+    <link rel="stylesheet" href="/Styles/Commons/Load_style_anim.css">
     <link rel="stylesheet" href="/Styles/Footer.css">
     <link rel="stylesheet" href="/Styles/Hire_div.css">
     <link rel="stylesheet" href="Styles/featured_style.css">
@@ -111,8 +113,8 @@
             </div>
         </div>
         <div class="news_section_item fading_element_card">
-            <img class="main_img" src="/Images/back1.png" alt="">
-            <img class="back_blur_img" src="/Images/back1.png" alt="">
+            <img class="main_img" src="Images/Assets/back1.png" alt="">
+            <img class="back_blur_img" src="Images/Assets/back1.png" alt="">
 
             <div class="desc_div">
                 <h2 class="title">Banana Bounce is LIVE on GD!</h2>
@@ -233,81 +235,33 @@
     
     <!-- 3d section -->
 
-    <h1 class="Middle_section_text fading_element_card small section_3d" id="Assets">3D & Animations</h1>     
-    <div class="custom_child_grid">
+    <h1 class="Middle_section_text fading_element_card small section_3d" id="Animations">3D & Animations</h1>
+    <div class="custom_child_grid" id="parent_3D_grid">
         
-        <div class="item_3d c2 small_9 fading_element_card">
-            <img class="main_img" src="Images/3D/Spacecraft.png" alt="Project image">
-
+        <!-- <div class="item_3d_parent c2 small_9">
+            <div class="item_3d fading_element_card">
+                <img class="main_img" src="Images/3D/Spacecraft.png" alt="Project image">
+                <img class="main_img" src="Images/3D/Spacecraft.png" alt="Project image">
+            </div>
             <div class="item_desc_parent">
                 <div class="item_desc">
                     <h2 class="title">Spacecraft 3D build</h2>
-                    <h2 class="date">27th August 2024</h2>
+                    <p class="date">27th August 2024</p>
                     <p class="desc">For my upcoming game, I am working on a
                         Spacecraft model, that will serve as the Main Menu for my game!
                     </p>
                     <div class="links">
-                        <a class="normal_link">Learn more</a>
+                        <button type="button" class="normal_link">Learn more</button>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="item_3d r2 desc_down small_82 desc_just_midd fading_element_card">
-            <img class="main_img" src="Images/3D/Fireball.png" alt="Project image">
-
-            <div class="item_desc_parent">
-                <div class="item_desc">
-                    <h2 class="title">Fireball (Blender)</h2>
-                    <h2 class="date">27th August 2024</h2>
-                    <p class="desc">A fireball simulation that I rendered and converted
-                        into a spritesheet to use as an animation.
-                    </p>
-
-                    <div class="links">
-                        <a class="normal_link">Learn more</a>
-                    </div>
-
-                </div>
+            <div class="scroll_indicators">
+                <div class="indi active"></div>
+                <div class="indi"></div>
             </div>
-        </div>
 
-        <div class="item_3d desc_down desc_just_midd small_7 fading_element_card">
-            <img class="main_img" src="Images/3D/Fireball.png" alt="Project image">
-
-            <div class="item_desc_parent">
-                <div class="item_desc">
-                    <h2 class="title">Fireball (Blender)</h2>
-                    <h2 class="date">27th August 2024</h2>
-                    <p class="desc">A fireball simulation that I rendered and converted
-                        into a spritesheet to use as an animation.
-                    </p>
-
-                    <div class="links">
-                        <a class="normal_link">Learn more</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="item_3d desc_down desc_just_midd small_7 fading_element_card">
-            <img class="main_img" src="Images/3D/Fireball.png" alt="Project image">
-
-            <div class="item_desc_parent">
-                <div class="item_desc">
-                    <h2 class="title">Fireball (Blender)</h2>
-                    <h2 class="date">27th August 2024</h2>
-                    <p class="desc">A fireball simulation that I rendered and converted
-                        into a spritesheet to use as an animation.
-                    </p>
-
-                    <div class="links">
-                        <a class="normal_link">Learn more</a>
-                    </div>
-
-                </div>
-            </div>
-        </div>    
+        </div> -->
     </div>
     <div class="load_button_parent">
         <button type="button" id="show_less_btn_3D" class="normal_link">Show less</button>
@@ -333,23 +287,25 @@
 
     <div class="Grid_3_max assets_grid" id="assets_section_parent">
 
-        <!-- <div class="asset_item fading_element_card">
-            <div class="img_div">
-                <img class="main_img overlap top_img" src="/Games/Banana_Bounce!/Images/Banana_bounce.png" alt="cover">
-                <img class="blur_img overlap" src="/Games/Banana_Bounce!/Images/Banana_bounce.png" alt="">
-            </div>
-            <div class="desc_div">
-                <p class="date">15th August 2024</p>
-                <h1 class="title">Banana Bounce Obstacles</h1>
-                <p class="desc">Banana Bounce features a lot of obstacles- these obstacles
-                    are high-quality assets, which are created from scratch just to make the game
-                    feel more neat and consistent!
-                </p>
-                    
-                <div class="links_wrapper">
-                    <div class="links">
-                        <button type="button" class="normal_link">View Asset</button>
-                        <button type="button" class="normal_link">View All</button>
+        <!-- <div class="asset_item_parent">
+            <div class="asset_item fading_element_card">
+                <div class="img_div">
+                    <img class="main_img overlap top_img" src="/Games/Banana_Bounce!/Images/Banana_bounce.png" alt="cover">
+                    <img class="blur_img overlap" src="/Games/Banana_Bounce!/Images/Banana_bounce.png" alt="">
+                </div>
+                <div class="desc_div">
+                    <p class="date">15th August 2024</p>
+                    <h1 class="title">Banana Bounce Obstacles</h1>
+                    <p class="desc">Banana Bounce features a lot of obstacles- these obstacles
+                        are high-quality assets, which are created from scratch just to make the game
+                        feel more neat and consistent!
+                    </p>
+                        
+                    <div class="links_wrapper">
+                        <div class="links">
+                            <button type="button" class="normal_link">View Asset</button>
+                            <button type="button" class="normal_link">View All</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -433,10 +389,13 @@
 
 </body>
 
+<script src="/Scripts/Commons/Scroll_on_load.js"></script>
 <script src="Scripts/Show_more_script/Show_more_manager.js"></script>
 <script src="Scripts/Vector_designs/Vector_gen.js"></script>
 <script src="Scripts/Game_assets_scripts/Game_assets_gen.js"></script>
 <script src="Scripts/Viewer_scripts/Viewer_manager.js"></script>
 <script src="Scripts/Promotional_game_cover/Game_cover_changer.js"></script>
+<script src="Scripts/Image_scroll_auto_script/Auto_scroll_script.js"></script>
+<script src="Scripts/3D_assets_scripts/3D_images_manager.js"></script>
 <script src="Scripts/script.js"></script>
 </html>

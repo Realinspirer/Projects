@@ -31,10 +31,10 @@ const Generate_vector_designs_section = (function () {
         //         break;
         //     }
         let vector_grid_item = document.createElement("div");
-        vector_grid_item.classList.add("vector_grid_item");
+        vector_grid_item.classList.add("vector_grid_item", "set_custom_style");
         parent.appendChild(vector_grid_item);
         let main_img = document.createElement("img");
-        main_img.classList.add("main_img");
+        main_img.classList.add("main_img", "set_custom_style");
         main_img.src = itm.img_path;
         main_img.alt = "";
         if (itm.custom_style != null) {

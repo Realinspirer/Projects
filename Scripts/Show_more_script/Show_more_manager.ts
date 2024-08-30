@@ -24,21 +24,24 @@ class project_data_class{
 
 let show_more_manager = (function(){
 
-    class loader_element_class{
+    class loader_element_class<Type>{
         Show_more_btn:HTMLButtonElement;
         Show_less_btn:HTMLButtonElement;
-        elements_adder:(data:Array<project_data_class>, parent:HTMLElement) => Array<HTMLElement>
-        req_data:Array<project_data_class>;
+        elements_adder:(data:Array<Type>, parent:HTMLElement) => Array<HTMLElement>
+        unload_fnc:((removing_element:HTMLElement) => void)|null
+        req_data:Array<Type>;
         parent:HTMLElement;
         add_amount:number;
 
         constructor(Show_more_btn:HTMLButtonElement, Show_less_btn:HTMLButtonElement,
-            elements_adder:(req_data:Array<project_data_class>, parent:HTMLElement) => Array<HTMLElement>,
-            parent:HTMLElement, req_data:Array<project_data_class>, add_amount:number){
+            elements_adder:(req_data:Array<Type>, parent:HTMLElement) => Array<HTMLElement>,
+            unload_fnc:((removing_element:HTMLElement) => void)|null,
+            parent:HTMLElement, req_data:Array<Type>, add_amount:number){
 
                 this.Show_less_btn = Show_less_btn;
                 this.Show_more_btn = Show_more_btn;
                 this.elements_adder = elements_adder;
+                this.unload_fnc = unload_fnc;
                 this.req_data = req_data;
                 this.parent = parent;
                 this.add_amount = add_amount;
@@ -69,7 +72,6 @@ let show_more_manager = (function(){
             this.current_index += added.length;
 
             this.#added_children.push(...added);
-            console.log(added.length);
 
             this.#button_checker();
         }
@@ -80,6 +82,11 @@ let show_more_manager = (function(){
             }
             for(let x = 0; x < this.#last_amount; x++){
                 let last_ele = this.#added_children[this.#added_children.length -1];
+                
+                if(this.unload_fnc != null){
+                    this.unload_fnc(last_ele);
+                }
+
                 this.parent.removeChild(last_ele);
                 this.#added_children.pop();
                 this.current_index--;
@@ -106,28 +113,29 @@ let show_more_manager = (function(){
         }
         
         
-        #return_next() : Array<project_data_class>{
+        #return_next() : Array<Type>{
             let last_index = this.current_index + this.add_amount;
             last_index = last_index > this.req_data.length ? this.req_data.length : last_index;
 
             return this.req_data.slice(this.current_index, last_index);
         }
     }
-
-    async function manage_show_more(json_path:string, show_more_btn_id:string,
+    
+    async function manage_show_more<Type>(json_path:string, show_more_btn_id:string,
         show_less_btn_id:string, parent_of_items:string,
-        elements_adder:(req_data:Array<project_data_class>, parent:HTMLElement) => Array<HTMLElement>,
+        elements_adder:(req_data:Array<Type>, parent:HTMLElement) => Array<HTMLElement>,
+        unload_fnc:((removing_element:HTMLElement) => void)|null = null,
         load_amount:number = 4)
     {
         var response = await fetch(json_path);
-        let res_ar:Array<project_data_class> = await response.json();
+        let res_ar:Array<Type> = await response.json();
 
         let show_more_btn = document.getElementById(show_more_btn_id)! as HTMLButtonElement;
         let show_less_btn = document.getElementById(show_less_btn_id)! as HTMLButtonElement;
         let parent = document.getElementById(parent_of_items)!;
 
         let manager_class = new loader_element_class(show_more_btn, show_less_btn,
-                elements_adder, parent, res_ar, load_amount);
+                elements_adder, unload_fnc, parent, res_ar, load_amount);
 
         manager_class.initialize_element();
             

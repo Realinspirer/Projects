@@ -4,20 +4,27 @@ const game_assets_generator = (function () {
         let to_return = [];
         data.forEach(itm => {
             var _a;
+            let asset_item_parent = document.createElement("div");
+            asset_item_parent.classList.add("asset_item_parent");
+            parent.appendChild(asset_item_parent);
+            to_return.push(asset_item_parent);
             let asset_item = document.createElement("div");
             asset_item.classList.add("asset_item", "fading_element_card");
-            parent.appendChild(asset_item);
-            to_return.push(asset_item);
+            asset_item_parent.appendChild(asset_item);
             let img_div = document.createElement("div");
             img_div.classList.add("img_div");
             asset_item.appendChild(img_div);
             let main_img = document.createElement("img");
-            main_img.classList.add("main_img", "overlap", "top_img");
+            main_img.classList.add("main_img", "overlap", "top_img", "set_custom_style");
             main_img.src = itm.img_path;
             main_img.alt = "Asset Cover";
             img_div.appendChild(main_img);
             let blur_img = document.createElement("img");
-            blur_img.classList.add("blur_img", "overlap");
+            blur_img.classList.add("blur_img", "overlap", "set_custom_style");
+            if (itm.custom_style != null) {
+                main_img.style.cssText = itm.custom_style;
+                blur_img.style.cssText = itm.custom_style;
+            }
             blur_img.src = itm.img_path;
             blur_img.alt = "";
             img_div.appendChild(blur_img);
@@ -34,7 +41,7 @@ const game_assets_generator = (function () {
             desc_div.appendChild(title);
             let desc = document.createElement("p");
             desc.classList.add("desc");
-            desc.textContent = itm.desc;
+            desc.textContent = itm.desc.substring(0, 80) + "...";
             desc_div.appendChild(desc);
             let links_wrapper = document.createElement("div");
             links_wrapper.classList.add("links_wrapper");
