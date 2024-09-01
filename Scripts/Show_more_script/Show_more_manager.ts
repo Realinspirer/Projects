@@ -1,27 +1,3 @@
-class project_btn_class{
-    label?:string|null;
-    action?:string|null;
-}
-class project_data_class{
-    img_path:string ;
-    title:string;
-    desc:string;
-    date:string;
-    custom_style?:string|null;
-    buttons?:Array<project_btn_class>|null;
-
-    constructor(img_path:string, title:string, desc:string, date:string,
-        custom_style?:string|null
-    ){
-        this.img_path = img_path;
-        this.title = title;
-        this.desc = desc;
-        this.date = date;
-        this.custom_style = custom_style;
-
-    }
-}
-
 let show_more_manager = (function(){
 
     class loader_element_class<Type>{

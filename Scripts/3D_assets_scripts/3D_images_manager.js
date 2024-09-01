@@ -1,18 +1,17 @@
 "use strict";
-class project_data_class_multiple_imgs {
-    constructor(img_path, title, desc, date, custom_style) {
-        this.img_path = img_path;
-        this.title = title;
-        this.desc = desc;
-        this.date = date;
-        this.custom_style = custom_style;
-    }
-}
 const manager_3d = (function () {
+    function create_main_img_and_add(path, item_3d) {
+        let main_img = document.createElement("img");
+        main_img.src = path;
+        main_img.alt = "Project cover";
+        main_img.classList.add("main_img");
+        item_3d.appendChild(main_img);
+    }
     function Generate_3D_item(data, parent) {
         let added_items = [];
-        data.forEach(itm => {
+        data.forEach(itm_raw => {
             var _a;
+            let itm = converter_project_data_class.converter(itm_raw);
             let item_3d_parent = document.createElement("div");
             item_3d_parent.classList.add("item_3d_parent");
             if (itm.custom_style != null) {
@@ -23,13 +22,14 @@ const manager_3d = (function () {
             let item_3d = document.createElement("div");
             item_3d.classList.add("item_3d", "fading_element_card");
             item_3d_parent.appendChild(item_3d);
-            itm.img_path.forEach(path => {
-                let main_img = document.createElement("img");
-                main_img.src = path;
-                main_img.alt = "Project cover";
-                main_img.classList.add("main_img");
-                item_3d.appendChild(main_img);
-            });
+            if ((itm.img_path).forEach) {
+                (itm.img_path).forEach(path => {
+                    create_main_img_and_add(path, item_3d);
+                });
+            }
+            else {
+                create_main_img_and_add(itm.img_path[0], item_3d);
+            }
             let item_desc_parent = document.createElement("div");
             item_desc_parent.classList.add("item_desc_parent");
             item_3d_parent.appendChild(item_desc_parent);

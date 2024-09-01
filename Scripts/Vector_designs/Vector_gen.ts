@@ -36,7 +36,7 @@ const Generate_vector_designs_section = (function(){
             
             let main_img = document.createElement("img");
             main_img.classList.add("main_img", "set_custom_style");
-            main_img.src = itm.img_path;
+            main_img.src = itm.img_path[0];
             main_img.alt = "";
 
             if(itm.custom_style != null){
@@ -55,7 +55,7 @@ const Generate_vector_designs_section = (function(){
             desc_div.appendChild(grad);
 
             let back_img = document.createElement("img");
-            back_img.src = itm.img_path;
+            back_img.src = itm.img_path[0];
             back_img.alt = "";
             grad.appendChild(back_img);
 
@@ -88,7 +88,8 @@ const Generate_vector_designs_section = (function(){
             links.appendChild(normal_link);
 
             let cu_ind = current_index;
-            normal_link.addEventListener("click", () => viewer_manager.open_viewer(itm, cu_ind));
+            normal_link.addEventListener("click", () => viewer_manager.open_viewer(
+                itm, cu_ind, get_data_count(), get_data_for_index));
             
             // elements_added++;
 
@@ -132,15 +133,29 @@ const Generate_vector_designs_section = (function(){
     async function generate(file_path:string, id:string, left_btn_query:string, right_btn_query:string, add_c:number=4){
             
         var response = await fetch(file_path);
-        res_ar = await response.json();
+        let res_ar_c:Array<converter_project_data_class> = await response.json();
+
+        res_ar = [];
+        res_ar_c.forEach(x => { res_ar.push(converter_project_data_class.converter(x)); });
+
         add_counter = add_c;
         parent = document.querySelector(`#${id}`)!;
+        add_def_viewer_btn();
 
         document.querySelector<HTMLButtonElement>(left_btn_query)!.addEventListener("click", () => parent.scrollBy(-150, 0));
         document.querySelector<HTMLButtonElement>(right_btn_query)!.addEventListener("click", () => parent.scrollBy(150, 0));
         
         load_designs();
         parent.addEventListener("scroll", on_scroll);
+    }
+    function add_def_viewer_btn(){
+        res_ar.forEach(x => {
+            if(x.viewer_btns == null){
+                x.viewer_btns = []
+            }
+            x.viewer_btns.push({label:"Need a designer? Let's talk!", action:"mailto:realinspirer@outlook.com"});
+
+        });
     }
 
     return {

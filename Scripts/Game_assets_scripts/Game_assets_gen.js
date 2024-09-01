@@ -2,8 +2,9 @@
 const game_assets_generator = (function () {
     return function add_to_parent(data, parent) {
         let to_return = [];
-        data.forEach(itm => {
+        data.forEach(itm_raw => {
             var _a;
+            let itm = converter_project_data_class.converter(itm_raw);
             let asset_item_parent = document.createElement("div");
             asset_item_parent.classList.add("asset_item_parent");
             parent.appendChild(asset_item_parent);
@@ -16,7 +17,7 @@ const game_assets_generator = (function () {
             asset_item.appendChild(img_div);
             let main_img = document.createElement("img");
             main_img.classList.add("main_img", "overlap", "top_img", "set_custom_style");
-            main_img.src = itm.img_path;
+            main_img.src = itm.img_path[0];
             main_img.alt = "Asset Cover";
             img_div.appendChild(main_img);
             let blur_img = document.createElement("img");
@@ -25,7 +26,7 @@ const game_assets_generator = (function () {
                 main_img.style.cssText = itm.custom_style;
                 blur_img.style.cssText = itm.custom_style;
             }
-            blur_img.src = itm.img_path;
+            blur_img.src = itm.img_path[0];
             blur_img.alt = "";
             img_div.appendChild(blur_img);
             let desc_div = document.createElement("desc_div");
@@ -55,14 +56,20 @@ const game_assets_generator = (function () {
                 normal_link.type = "button";
                 normal_link.textContent = btn.label ? btn.label : "";
                 if (btn.action != null) {
-                    normal_link.addEventListener("click", () => Manage_action_string(btn.action));
+                    normal_link.addEventListener("click", () => Manage_action_string(btn.action, itm));
                 }
                 links.appendChild(normal_link);
             });
         });
         return to_return;
     };
+    function Manage_action_string(action, data, add_info) {
+        if (action.toLowerCase() == "viewer") {
+            viewer_manager.open_viewer(data, ...[, , ,], true);
+        }
+        else {
+            let open_arg = add_info ? (add_info[0].includes("self") ? "_self" : "") : "";
+            window.open(action, open_arg);
+        }
+    }
 })();
-function Manage_action_string(action) {
-    console.log(action);
-}

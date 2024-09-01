@@ -10,3 +10,6 @@ show_more_manager.manage_show_more("/JSON_data/Projects_game_assets/Game_assets.
 show_more_manager.manage_show_more("/JSON_data/Projects_3D/3D_items_gen.json",
     "load_more_btn_3D", "show_less_btn_3D", "parent_3D_grid", 
     manager_3d.Generate_3D_item, manager_3d.removed_element, 4);
+
+
+scroll_to_id.hook_to_elements(...document.querySelectorAll<HTMLElement>(".hash_creator"));

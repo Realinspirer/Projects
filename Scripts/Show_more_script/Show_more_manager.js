@@ -19,17 +19,6 @@ var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (
     if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
     return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
 };
-class project_btn_class {
-}
-class project_data_class {
-    constructor(img_path, title, desc, date, custom_style) {
-        this.img_path = img_path;
-        this.title = title;
-        this.desc = desc;
-        this.date = date;
-        this.custom_style = custom_style;
-    }
-}
 let show_more_manager = (function () {
     var _loader_element_class_instances, _loader_element_class_last_amount, _loader_element_class_added_children, _loader_element_class_unload_clicked, _loader_element_class_button_checker, _loader_element_class_return_next;
     class loader_element_class {

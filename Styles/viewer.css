@@ -97,7 +97,7 @@ html.viewer_active{
     margin-top: 1em;
 }
 .viewer_div .normal_button{
-    margin-top: 1.5em;
+    margin-top: 0.2em;
     font-size: 1.2em;
     /* align-self: center; */
     background-color: #3f3f3fff;
@@ -110,6 +110,7 @@ html.viewer_active{
     padding-left: 1.3em;
     padding-right: 1.3em;
     /* margin-bottom: 2em; */
+    width: 100%;
 }
 .viewer_div .normal_button::before{
     background-image: linear-gradient(90deg, #f19466ff, #f1aa3dff);
@@ -151,6 +152,9 @@ html.viewer_active{
     position: relative;
     z-index: 1;
 }
+.navigation_button.hidden{
+    display: none;
+}
 .navigation_button img{
     height: 55%;
     width: 55%;
@@ -158,6 +162,10 @@ html.viewer_active{
     display:block;
     margin:auto;
     pointer-events: none;
+}
+.viewer_parent .btns{
+    margin-top: 1.5em;
+    width: 100%;
 }
 .viewer_parent .close_btn{
     position: absolute;
@@ -212,8 +220,6 @@ html.viewer_active{
     display: grid;
     grid-template-rows: 100%;
     grid-template-columns: 100%;
-    justify-content: center;
-    align-items: center;
 
     padding: 1em;
     width: 100%;
@@ -248,8 +254,8 @@ html.viewer_active{
     grid-column-start: 1;
 
     /* background-color: black; */
-    height: 100%;
     width: 100%;
+    height: 100%;
     object-fit: contain;
     overflow: hidden;
 
@@ -372,10 +378,13 @@ html.viewer_active{
 
 }
 
-.viewer_parent .viewer_side *, .viewer_parent .image_holder *{
+.viewer_parent .viewer_side > *, .viewer_parent .image_holder > *{
     transition: opacity var(--base_anim_speed);
 }
-.viewer_parent.faded .viewer_side *, .viewer_parent.faded .image_holder *{
+.viewer_parent.faded .viewer_side > *, .viewer_parent.faded .image_holder > *{
+    opacity: 0;
+}
+.viewer_parent.faded_just_img .image_holder > *{
     opacity: 0;
 }
 
@@ -390,6 +399,12 @@ html.viewer_active{
         grid-template-columns: 100%;
         grid-template-rows: 80% auto;
     }
+    .viewer_div .btn_parent{
+        order: -2;
+        /* margin:; */
+        padding: initial;
+        margin: 0 0 0.3em 0;
+    }
     .viewer_div .viewer_side{
         order: 1;
         padding: 1.5em 2em 1.5em 2em;
@@ -400,7 +415,7 @@ html.viewer_active{
     .viewer_div .desc{
         margin-top: 0.3em;
     }
-    .viewer_div .normal_button{
+    .viewer_div .btns{
         margin-top: 0.8em;
     }
     .viewer_div .title{

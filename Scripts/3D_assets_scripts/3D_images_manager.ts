@@ -1,28 +1,20 @@
-class project_data_class_multiple_imgs{
-    img_path:Array<string>;
-    title:string;
-    desc:string;
-    date:string;
-    custom_style?:string|null;
-    buttons?:Array<project_btn_class>|null;
-
-    constructor(img_path:Array<string>, title:string, desc:string, date:string,
-        custom_style?:string|null
-    ){
-        this.img_path = img_path;
-        this.title = title;
-        this.desc = desc;
-        this.date = date;
-        this.custom_style = custom_style;
-
-    }
-}
 const manager_3d = (function(){
     
-    function Generate_3D_item(data:Array<project_data_class_multiple_imgs>, parent:HTMLElement):Array<HTMLElement>{
+    function create_main_img_and_add(path:string, item_3d:HTMLElement){
+        let main_img = document.createElement("img");
+        main_img.src = path;
+        main_img.alt = "Project cover";
+        main_img.classList.add("main_img");
+
+        item_3d.appendChild(main_img);
+    }
+    
+    function Generate_3D_item(data:Array<converter_project_data_class>, parent:HTMLElement):Array<HTMLElement>{
         let added_items:Array<HTMLElement> = []
 
-        data.forEach(itm =>{
+        data.forEach(itm_raw =>{
+            let itm = converter_project_data_class.converter(itm_raw);
+
             let item_3d_parent = document.createElement("div");
             item_3d_parent.classList.add("item_3d_parent");
             if(itm.custom_style != null){
@@ -35,14 +27,16 @@ const manager_3d = (function(){
             item_3d.classList.add("item_3d", "fading_element_card");
             item_3d_parent.appendChild(item_3d);
 
-            itm.img_path.forEach(path =>{
-                let main_img = document.createElement("img");
-                main_img.src = path;
-                main_img.alt = "Project cover";
-                main_img.classList.add("main_img");
+            if((<Array<string>>(itm.img_path)).forEach){
 
-                item_3d.appendChild(main_img);
-            });
+                (<Array<string>>(itm.img_path)).forEach(path =>{
+                    create_main_img_and_add(path, item_3d);
+                });
+            }
+            else{
+                create_main_img_and_add(itm.img_path[0], item_3d);
+            }
+
 
             let item_desc_parent = document.createElement("div");
             item_desc_parent.classList.add("item_desc_parent");
