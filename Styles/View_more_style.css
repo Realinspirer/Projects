@@ -1,0 +1,103 @@
+:where(.more_section_grid_main, .more_section_grid_main *){
+    padding: initial;
+    margin: initial;
+}
+.more_section_grid_main{
+    display: grid;
+    grid-auto-rows: 1fr;
+    margin: var(--margin_sides);
+    gap: 1em;
+
+    
+    font-size: 1rem;
+    font-size: 0.9rem;
+    font-size: clamp(0.9rem, 0.733rem + 0.296vw, 1rem);
+}
+.more_section{
+    min-height: 20em;
+    background-color: #ffffffb5;
+    border-radius: 1.2em;
+    padding: 1.5em;
+    
+    display: grid;
+    grid-template-columns: 35% 1fr;
+    gap: 2em;
+
+    transition: background-color var(--base_anim_speed) ease;
+
+
+}
+.more_section:hover{
+    background-color: white;
+}
+.more_section::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+
+    border-radius: inherit;
+    margin: 0.3em;
+    border: 1px #515151b2 dashed;
+    transition: border-color var(--base_anim_speed) ease;
+}
+.more_section:hover::before{
+    border-color: #515151;
+}
+
+.more_section .main_img{
+    background-color: #a9a9a9;
+    border-radius: 1em;
+}
+
+.more_section .desc_div{
+    display: flex;
+    justify-content: center;
+    flex-flow: column;
+    align-items: start;
+    gap: 0.5em;
+    padding: 2em 0;
+}
+.more_section .title{
+    font-size: 2.2em;
+    font-family: LT_light;
+    color: #666666ff;
+}
+.more_section .desc{
+    font-size: 1.15em;
+    color: #666666ff;
+    font-family: LT_extralight;
+}
+
+.more_section .main_button{
+    margin-top: 0.85em;
+    background-color: #666666ff;
+    color: #e7e7e7ff;
+    border-radius: 0.6em;
+    font-size: 1.15em;
+    padding: 0.65em 1.2em;
+}
+
+@media screen and (max-width:900px) {
+    .more_section_grid_main{
+        font-size: 0.95rem;
+        font-size: 0.835rem;
+        font-size: clamp(0.835rem, 0.777rem + 0.307vw, 0.95rem);
+        grid-auto-rows: initial;
+    }
+    .more_section
+    {
+        grid-template-columns: 100%;
+        grid-template-rows: 20em auto;
+        padding: 1.3em;
+    }
+    .more_section .desc_div{
+        align-items: center;
+        text-align: center;
+        padding: 0;
+        margin-bottom: 0.8em;
+    }
+}
