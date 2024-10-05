@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 - Page not found! - Realinspirer</title>
+    <title>3D Projects - Realinspirer</title>
     <link rel="icon" href="/Images/logo.svg">
+    <meta name="description" content="Discover various 3D projects from Realinspirer, and awesome post and blogs about all 3D, Blender and Unity 3D!">
+
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/Scripts/script.js"></script>
 
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/Styles/Hamburger_nav_icon_style.css">
+    <link rel="stylesheet" href="/Styles/Commons/Big_back_static_image_style.css">
+    <link rel="stylesheet" href="/Styles/Commons/infinite_scroller.css">
+    <link rel="stylesheet" href="/Styles/Commons/custom_btn.css">
+    <link rel="stylesheet" href="/Styles/Commons/Scroll_btn_style.css">
+    <link rel="stylesheet" href="/Styles/Middle_section_style.css">
     <link rel="stylesheet" href="/Styles/Footer.css">
-    <link rel="stylesheet" href="/Styles/Hire_div.css">
-    <link rel="stylesheet" href="/Styles/404_style.css">
+    <link rel="stylesheet" href="Styles/style.css">
 
     
 </head>
@@ -22,10 +28,10 @@
     <div class="logo_div">
         <img class="logo_img" src="/Images/logo.svg" onclick="window.open('/', '_self')" alt="">
         <div class="Main_links_div">
-            <a class="Main_links active" href="/"><span>HOME</span></a>
+            <a class="Main_links" href="/"><span>HOME</span></a>
             <a class="Main_links donate" href="/Donate/"><span>DONATE</span></a>
             <a class="Main_links" href="/Games/"><span>GAMES</span></a>
-            <a class="Main_links" href="/Projects/"><span>PROJECTS</span></a>
+            <a class="Main_links active" href="/Projects/"><span>PROJECTS</span></a>
             <a class="Main_links" href="/Apps/"><span>APPS</span></a>
             <a class="Main_links" href="/About_me/"><span>ABOUT ME</span></a>
             <a class="Main_links icon" id="nav_bar" onclick="open_close_nav()">
@@ -46,24 +52,117 @@
             <!-- &#8801; -->
         </div>
         <div class="not_visible" id="verticle_menu" tabindex="0">
-            <a class="Main_links active" href="/"><span>HOME</span></a>
+            <a class="Main_links" href="/"><span>HOME</span></a>
             <a class="Main_links donate" href="/Donate/"><span>DONATE</span></a>
             <a class="Main_links" href="/Games/"><span>GAMES</span></a>
-            <a class="Main_links" href="/Projects/"><span>PROJECTS</span></a>
+            <a class="Main_links active" href="/Projects/"><span>PROJECTS</span></a>
             <a class="Main_links" href="/Apps/"><span>APPS</span></a>
             <a class="Main_links" href="/About_me/"><span>ABOUT ME</span></a>
         </div>
     </div>
     <!-- header end -->
 
-    <div class="not_found_parent">
-        <p class="title">404</p>
-        <p class="subtitle">This page is either in development,<br> or 
-            does not exist!
+    <div class="big_back_parent">
+        <div class="big_back_thing">
+            <img class="big_back_img" src="Images/3D_cover.png" alt="Back_cover">
+
+        </div>
+    </div>
+    <h1 class="apps_title">
+        Discover Awesome 3D Works
+        <span>by Realinspirer</span>
+    </h1>
+
+    <div class="card fading_element_card card_top">
+        <p>Here you will find nearly everything 3D that I create using some really
+            amazing software including Blender, Unity, Inkscape, and DaVinci Resolve.
+            <br> You can find posts and even blogs about these projects. You might also find how to replicate certain works of mine from those blogs!
+            <br> <br> Have a look around and enjoy!<br>
+            Everything is made with ❤️ by Realinspirer
         </p>
-        <a class="normal_button" href="/">Go back to home page</a>
+        <p><br>Have something to say? Check out my <a class="normal_link" href="/#Socials">socials</a> or contact me</p>
+        <a class="normal_button main_btn need_custom_btn contact_btn"
+        href="mailto:realinspirer@outlook.com">Contact me</a>
+
+        <p class="special_thanks">Special thanks to:</p>
+
+        <div class="infinite_scroller">
+            <div class="infinite_scroller_inner">
+                <img src="Images/thanks/unity.png" alt=""/>
+                <img src="Images/thanks/blender.png" alt=""/>
+                <img src="Images/thanks/inkscape.png" alt=""/>
+                <img src="Images/thanks/resolve.png" alt=""/>
+
+                <img src="Images/thanks/unity.png" alt=""/>
+                <img src="Images/thanks/blender.png" alt=""/>
+                <img src="Images/thanks/inkscape.png" alt=""/>
+                <img src="Images/thanks/resolve.png" alt=""/>
+
+            </div>
+        </div>
     </div>
 
+
+    <h2 class="Middle_section_text fading_element_card small">Blogs & Posts</h2>
+
+    <div class="card fading_element_card">
+        <div class="post_image_scroller">
+            <button class="sc_button left" type="button" title="Scroll left">
+                <img src="/Images/Symbols/down.png" alt="">
+            </button>
+            <button class="sc_button right" type="button" title="Scroll right">
+                <img src="/Images/Symbols/down.png" alt="">
+            </button>
+
+            <div class="images_post no_scroll_bar">
+                <div class="post_img">
+                    <img src="Images/fui/thumbnail.jpg" alt="">
+
+                    <div class="full_screen_prompt">
+                        <p class="full_text">Click to Expand</p>
+                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
+                    </div>
+                </div>
+
+                <div class="post_img ">
+                    <img src="Images/fui/profile.jpg" alt="">
+                    <div class="full_screen_prompt">
+                        <p class="full_text">Click to Expand</p>
+                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
+                    </div>
+                </div>
+                <div class="post_img">
+                    <img src="Images/3D_cover.png" alt="">
+                    <div class="full_screen_prompt">
+                        <p class="full_text">Click to Expand</p>
+                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
+                    </div>
+                </div>
+                <div class="post_img">
+                    <img src="Images/3D_cover.png" alt="">
+                    <div class="full_screen_prompt">
+                        <p class="full_text">Click to Expand</p>
+                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="post_text">
+            <h2 class="title">Futuristic UI Design
+                <button type="button" class="hash_anchor">#</span></h2>
+            <p class="desc">I made this futuristic using Blender. This design features various abstract elements made using simple shaders in Blender's shader editor to using some actual interesting geometry and shapes.<br><br>
+
+                I pulled an all nighter to finish this piece, and this now serves as a cover image for my various social pages like YouTube, Ko-fi, and much more!</p>
+
+            <div class="btn_holder">
+                <a class="normal_button main_btn with_icon" href="Looper_comment/">Read full blog post
+                    <img class="external_symbol" src="/Images/Symbols/arrow_dark.png" alt=""></a>
+            </div>
+        </div>
+    </div>
 
     <!-- footer section -->
     <div class="footer_div">
