@@ -3,7 +3,6 @@
     let parent = document.querySelector("#posts");
     let query = new URLSearchParams(window.location.search);
     let req_title = query.get("title");
-    console.log(req_title);
     if (req_title != null) {
         let req_index = projects_3d_posts_data.findIndex(x => x.title == req_title);
         if (req_index != -1) {
@@ -20,7 +19,7 @@
         post_img_sc.classList.add("post_image_scroller");
         card.appendChild(post_img_sc);
         let left_btn = document.createElement("button");
-        left_btn.classList.add("sc_button", "left");
+        left_btn.classList.add("sc_button", "left", "mid");
         left_btn.type = "button";
         left_btn.title = "Scroll left";
         post_img_sc.appendChild(left_btn);
@@ -29,7 +28,7 @@
         left_sym.alt = "";
         left_btn.appendChild(left_sym);
         let right_btn = document.createElement("button");
-        right_btn.classList.add("sc_button", "right");
+        right_btn.classList.add("sc_button", "right", "mid");
         right_btn.type = "button";
         right_btn.title = "Scroll right";
         post_img_sc.appendChild(right_btn);
@@ -46,6 +45,7 @@
             post_data.imgs.forEach(img => {
                 let post_img = document.createElement("div");
                 post_img.classList.add("post_img");
+                post_img.addEventListener("click", () => project_3d_post_img_handler(img));
                 images_post.appendChild(post_img);
                 let im = document.createElement("img");
                 im.src = img;
