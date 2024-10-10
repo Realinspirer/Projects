@@ -15,22 +15,6 @@ body{
 
     /* --section_color: #393939; */
 }
-/* .big_back_thing{
-    position: relative;
-}
-.big_back_thing::after{
-    background-image: linear-gradient(transparent 80%, #ebebebff);
-}
-.apps_title{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-
-    font-size: 3rem;
-    font-size: 2rem;
-    font-size: clamp(2rem, 1.737rem + 1.404vw, 3rem);
-} */
 
 .contact_btn{
     font-size: 0.85em;
@@ -145,6 +129,7 @@ body{
     font-family: LT_light;
     margin-top: 0.7em;
     color: #4e4e4eff;
+    white-space: pre-line;
 }
 
 .btn_holder{
@@ -155,10 +140,22 @@ body{
     flex-flow: row wrap;
     gap: 0.7em;
 }
-.btn_holder .main_btn{
+.main_btn{
     --btn_back: #768089;
     --btn_fore: #dae0e9ff;
     --btn_col: #eff5ff;
     --btn_hover_col:#1b2431;
     --btn_min_width:14em;
 }
+.other_btn{
+    --btn_fore: #768089;
+    --btn_back: transparent;
+    --btn_hover_col: #eff5ff;
+    --btn_col:#1b2431;
+}
+/* .other_btn .external_symbol{
+    filter: none;
+} */
+/* .other_btn:hover .external_symbol{ */
+    /* filter: invert(1); */
+/* } */

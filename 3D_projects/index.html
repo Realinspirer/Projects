@@ -10,6 +10,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="/Scripts/script.js"></script>
+    <script src="/Scripts/Commons/common_classes.js"></script>
 
     <link rel="stylesheet" href="/style.css">
     <link rel="stylesheet" href="/Styles/Hamburger_nav_icon_style.css">
@@ -105,159 +106,48 @@
 
     <h2 class="Middle_section_text fading_element_card small">Blogs & Posts</h2>
 
-    <div class="card fading_element_card">
-        <div class="post_image_scroller">
-            <button class="sc_button left" type="button" title="Scroll left">
-                <img src="/Images/Symbols/down.png" alt="">
-            </button>
-            <button class="sc_button right" type="button" title="Scroll right">
-                <img src="/Images/Symbols/down.png" alt="">
-            </button>
+    <div id="posts">
 
-            <div class="images_post no_scroll_bar">
+        <!-- <div class="card fading_element_card">
+            <div class="post_image_scroller">
+                <button class="sc_button left" type="button" title="Scroll left">
+                    <img src="/Images/Symbols/down.png" alt="">
+                </button>
+                <button class="sc_button right" type="button" title="Scroll right">
+                    <img src="/Images/Symbols/down.png" alt="">
+                </button>
+                <div class="images_post no_scroll_bar">
 
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/0.jpg" alt="">
+                    <div class="post_img">
+                        <img src="" alt="">
+                        <div class="full_screen_prompt">
+                            <p class="full_text">Click to Expand</p>
+                            <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
+                        </div>
+                    </div>
 
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
+                    <div class="post_img ">
+                        <img src="" alt="">
+                        <div class="full_screen_prompt">
+                            <p class="full_text">Click to Expand</p>
+                            <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
+                        </div>
                     </div>
                 </div>
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/1.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/2.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/3.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/4.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/5.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/6.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="/Projects/3D_projects/Images/low_poly/7.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-
-                
-
             </div>
-
-        </div>
         
-
-        <div class="post_text">
-            <h2 class="title">Low-Poly 3D Area Design using Blender
-                <button type="button" class="hash_anchor">#</span></h2>
-            <p class="desc">I made this low poly 3D build to use as a demonstration for my upcoming video. Details and perfection were not necessary as this is gonna be used for a small part in the video. Turned out to be quite good for my purpose. It was quite fun designing models with little time in hand.</p>
-
-            <div class="btn_holder">
-                <a class="normal_button main_btn with_icon" href="Looper_comment/">Read full blog post
-                    <img class="external_symbol" src="/Images/Symbols/arrow_dark.png" alt=""></a>
+            <div class="post_text">
+                <h2 class="title">
+                    <button type="button" class="hash_anchor">#</button>
+                </h2>
+                <p class="desc"></p>
+                <div class="btn_holder">
+                    <a class="normal_button main_btn with_icon" href="">Read full blog post
+                        <img class="external_symbol" src="/Images/Symbols/arrow_dark.png" alt=""></a>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="card fading_element_card">
-        <div class="post_image_scroller">
-            <button class="sc_button left" type="button" title="Scroll left">
-                <img src="/Images/Symbols/down.png" alt="">
-            </button>
-            <button class="sc_button right" type="button" title="Scroll right">
-                <img src="/Images/Symbols/down.png" alt="">
-            </button>
-
-            <div class="images_post no_scroll_bar">
-                <div class="post_img">
-                    <img src="Images/fui/thumbnail.jpg" alt="">
-
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-
-                <div class="post_img ">
-                    <img src="Images/fui/profile.jpg" alt="">
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="Images/3D_cover.png" alt="">
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-                <div class="post_img">
-                    <img src="Images/3D_cover.png" alt="">
-                    <div class="full_screen_prompt">
-                        <p class="full_text">Click to Expand</p>
-                        <img class="symbol" src="/Images/Symbols/Full_screen.png" alt="">
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+        </div> -->
         
-
-        <div class="post_text">
-            <h2 class="title">Futuristic UI Design
-                <button type="button" class="hash_anchor">#</span></h2>
-            <p class="desc">I made this futuristic using Blender. This design features various abstract elements made using simple shaders in Blender's shader editor to using some actual interesting geometry and shapes.<br><br>
-
-                I pulled an all nighter to finish this piece, and this now serves as a cover image for my various social pages like YouTube, Ko-fi, and much more!</p>
-
-            <div class="btn_holder">
-                <a class="normal_button main_btn with_icon" href="Looper_comment/">Read full blog post
-                    <img class="external_symbol" src="/Images/Symbols/arrow_dark.png" alt=""></a>
-            </div>
-        </div>
     </div>
 
     <!-- footer section -->
@@ -325,4 +215,7 @@
     <!-- footer section end -->
 
 </body>
+<script src="Scripts/Post_img_handler/post_img_handler.js"></script>
+<script src="/JSON_data/Projects_3D_posts/projects_3d_posts_data.js"></script>
+<script src="Scripts/Posts_generator/posts_gen.js"></script>
 </html>
