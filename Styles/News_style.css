@@ -10,6 +10,10 @@ body{
     --margin_sides:0.88rem;
     --margin_sides:clamp(0.88rem, 0.717rem + 0.87vw, 1.5rem);
 }
+.blog_section{
+    --def_line_width:3em;
+    --hover_line_width:6em;
+}
 
 
 /* news grid styling */

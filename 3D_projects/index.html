@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="/Styles/Commons/Scroll_btn_style.css">
     <link rel="stylesheet" href="/Styles/Middle_section_style.css">
     <link rel="stylesheet" href="/Styles/Footer.css">
+    <link rel="stylesheet" href="/Styles/Commons/post_style.css">
     <link rel="stylesheet" href="Styles/style.css">
 
     
@@ -104,7 +105,7 @@
     </div>
 
 
-    <h2 class="Middle_section_text fading_element_card small">Blogs & Posts</h2>
+    <h2 class="Middle_section_text fading_element_card">3D Blogs & Posts</h2>
 
     <div id="viewer" class="hidden">
         <div class="view">
@@ -146,7 +147,8 @@
             </div>
         
             <div class="post_text">
-                <h2 class="title">
+                <p class="date"></p>
+                <h2 class="title">hell
                     <button type="button" class="hash_anchor">#</button>
                 </h2>
                 <p class="desc"></p>
@@ -157,6 +159,9 @@
             </div>
         </div> -->
 
+        <div class="clear_btn_parent hidden" id="clear_query">
+            <a class="normal_button main_btn with_icon clear_btn" href="."><img class="external_symbol" src="/Images/Symbols/cross.png" alt=""/>Clear query</a>
+        </div>
     </div>
 
     <!-- footer section -->
@@ -199,6 +204,7 @@
             <div class="footer_links_section">
                 <p class="footer_links_title">More links</p>
                 <ul class="footer_links_list">
+                    <li><a href="/Blogs/">Blogs</a></li>
                     <li><a href="/About_me/">About me</a></li>
                     <li><a href="/Donate/">Donate</a></li>
                 </ul>
@@ -224,7 +230,7 @@
     <!-- footer section end -->
 
 </body>
-<script src="Scripts/Post_img_handler/post_img_handler.js"></script>
+<script src="/Scripts/Commons/Normal_posts_generator/posts_gen.js"></script>
 <script src="/JSON_data/Projects_3D_posts/projects_3d_posts_data.js"></script>
-<script src="Scripts/Posts_generator/posts_gen.js"></script>
+<script src="Scripts/script.js"></script>
 </html>
