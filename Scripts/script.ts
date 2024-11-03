@@ -8,3 +8,4 @@ common_gen("/JSON_data/Projects_3D/3D_items_gen.json", "parent_3D_grid", manager
 
 
 scroll_to_id.hook_to_elements(...document.querySelectorAll<HTMLElement>(".hash_creator"));
+posts_blogs_gen_project(Blogs_and_posts_data, "#posts_section");
