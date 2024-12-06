@@ -92,6 +92,7 @@ body{
     font-size: 1.13em;
     margin-top: 0.7em;
     color: var(--project_subtitle_color);
+    /* white-space: pre-wrap; */
 }
 
 

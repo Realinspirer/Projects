@@ -49,8 +49,16 @@
 }
 
 .more_section .main_img{
-    background-color: #a9a9a9;
+    /* background-color: #a9a9a9; */
+    border: solid #a9a9a9 1px;
     border-radius: 1em;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    padding: 0.5em;
+}
+.more_section .main_img.cover{
+    object-fit: cover;
 }
 
 .more_section .desc_div{

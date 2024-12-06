@@ -41,7 +41,7 @@ const posts_blogs_gen_project = (function(){
 
             let title = document.createElement("h2");
             title.classList.add("title");
-            title.textContent = data.title;
+            title.textContent = data.title.slice(0,30) + "...";
             desc_div.appendChild(title);
 
             let date = document.createElement("p");
@@ -51,7 +51,7 @@ const posts_blogs_gen_project = (function(){
 
             let desc = document.createElement("p");
             desc.classList.add("desc");
-            desc.textContent = data.subtitle ?? "";
+            desc.textContent = (data.subtitle?.slice(0,120) ?? "") + "...";
             desc_div.appendChild(desc);
 
             let links_wrapper = document.createElement("div");

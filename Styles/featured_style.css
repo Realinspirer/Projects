@@ -79,6 +79,7 @@ body{
 .featured_parent .featured_img{
     filter: drop-shadow(0 0 0.6em #a6a6a6);
     height: 23em;
+    height: 21em;
     width: 100%;
     justify-self: center;
     border-radius: 1.3em;

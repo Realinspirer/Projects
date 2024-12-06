@@ -5,7 +5,7 @@ const posts_blogs_gen_project = (function () {
         let index = 0;
         let count = 3;
         req_data.forEach(data => {
-            var _a, _b, _c;
+            var _a, _b, _c, _d;
             if (index >= count) {
                 return;
             }
@@ -30,7 +30,7 @@ const posts_blogs_gen_project = (function () {
             news_section_item.appendChild(desc_div);
             let title = document.createElement("h2");
             title.classList.add("title");
-            title.textContent = data.title;
+            title.textContent = data.title.slice(0, 30) + "...";
             desc_div.appendChild(title);
             let date = document.createElement("p");
             date.classList.add("date");
@@ -38,7 +38,7 @@ const posts_blogs_gen_project = (function () {
             desc_div.appendChild(date);
             let desc = document.createElement("p");
             desc.classList.add("desc");
-            desc.textContent = (_b = data.subtitle) !== null && _b !== void 0 ? _b : "";
+            desc.textContent = ((_c = (_b = data.subtitle) === null || _b === void 0 ? void 0 : _b.slice(0, 120)) !== null && _c !== void 0 ? _c : "") + "...";
             desc_div.appendChild(desc);
             let links_wrapper = document.createElement("div");
             links_wrapper.classList.add("links_wrapper");
@@ -56,7 +56,7 @@ const posts_blogs_gen_project = (function () {
             links.appendChild(post_link);
             let btn_index = 0;
             let btn_count = 2;
-            (_c = data.btns) === null || _c === void 0 ? void 0 : _c.forEach(btn => {
+            (_d = data.btns) === null || _d === void 0 ? void 0 : _d.forEach(btn => {
                 var _a;
                 btn_index++;
                 if (btn_index < btn_count) {
