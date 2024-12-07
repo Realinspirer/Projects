@@ -10,8 +10,8 @@ body{
     
 }
 .Middle_section_text.vector_section{
-    --def_line_width:4.5em;
-    --hover_line_width:6.8em;
+    --def_line_width:7em;
+    --hover_line_width:10em;
 }
 
 :where(.vector_designs_parent, .vector_designs_parent *){
