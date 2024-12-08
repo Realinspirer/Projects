@@ -8,9 +8,9 @@
     // common_gen("/JSON_data/Projects_3D/3D_items_gen.json", "parent_3D_grid", manager_3d.Generate_3D_item);
     
     scroll_to_id.hook_to_elements(...document.querySelectorAll<HTMLElement>(".hash_creator"));
-    posts_blogs_gen_project(await post_tag_searcher.return_found_tagged_items_excluded(Blogs_and_posts_data, "3D", "Blender"), "#posts_section");
+    posts_blogs_gen_project(await post_tag_searcher.return_found_tagged_items_excluded(Blogs_and_posts_data, 3, "3D", "Blender"), "#posts_section");
     
-    let req_data = await post_tag_searcher.return_found_tagged_items(Blogs_and_posts_data, "3D", "Blender");
+    let req_data = await post_tag_searcher.return_found_tagged_items(Blogs_and_posts_data, 4, "3D", "Blender");
     manager_3d.Generate_3D_item(req_data, document.getElementById("parent_3D_grid")!)
 
 })();
