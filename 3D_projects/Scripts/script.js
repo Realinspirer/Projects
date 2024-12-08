@@ -1,2 +1,2 @@
 "use strict";
-posts_gen(projects_3d_posts_data);
+posts_gen.generate(Blogs_and_posts_data, "3D", "Blender");
