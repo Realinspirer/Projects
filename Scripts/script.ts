@@ -3,7 +3,7 @@
     game_cover_changer.hook_cover_fader("/JSON_data/Games_games_list/Games_gen.json");
 
     common_gen("/JSON_data/Projects_game_assets/Game_assets.json","assets_section_parent", 
-        game_assets_generator, 3);
+        game_assets_generator, 6);
 
     // common_gen("/JSON_data/Projects_3D/3D_items_gen.json", "parent_3D_grid", manager_3d.Generate_3D_item);
     
