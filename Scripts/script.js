@@ -15,8 +15,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         common_gen("/JSON_data/Projects_game_assets/Game_assets.json", "assets_section_parent", game_assets_generator, 6);
         // common_gen("/JSON_data/Projects_3D/3D_items_gen.json", "parent_3D_grid", manager_3d.Generate_3D_item);
         scroll_to_id.hook_to_elements(...document.querySelectorAll(".hash_creator"));
-        posts_blogs_gen_project(yield post_tag_searcher.return_found_tagged_items_excluded(Blogs_and_posts_data, 3, "3D", "Blender"), "#posts_section");
-        let req_data = yield post_tag_searcher.return_found_tagged_items(Blogs_and_posts_data, 4, "3D", "Blender");
+        var posts_response = yield fetch("/JSON_data/Blogs_posts/Blogs_and_posts_data.json");
+        var posts_data_raw = yield posts_response.json();
+        posts_blogs_gen_project(yield post_tag_searcher.return_found_tagged_items_excluded(posts_data_raw, 3, "3D", "Blender"), "#posts_section");
+        let req_data = yield post_tag_searcher.return_found_tagged_items(posts_data_raw, 4, "3D", "Blender");
         manager_3d.Generate_3D_item(req_data, document.getElementById("parent_3D_grid"));
     });
 })();
