@@ -6,9 +6,9 @@ body{
     --desc_color_a:#5b5b5bff;
     --desc_color_a_hover:#d76a6a;
 
-    --margin_sides:1.5rem;
+    /* --margin_sides:1.5rem;
     --margin_sides:0.88rem;
-    --margin_sides:clamp(0.88rem, 0.717rem + 0.87vw, 1.5rem);
+    --margin_sides:clamp(0.88rem, 0.717rem + 0.87vw, 1.5rem); */
 }
 .blog_section{
     --def_line_width:3em;
