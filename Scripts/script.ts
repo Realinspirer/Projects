@@ -12,9 +12,9 @@
     var posts_response = await fetch("/JSON_data/Blogs_posts/Blogs_and_posts_data.json");
     var posts_data_raw:Array<Data_class_multiple_imgs_btn> = await posts_response.json();
     
-    posts_blogs_gen_project(await post_tag_searcher.return_found_tagged_items_excluded(posts_data_raw, 3, "3D", "Blender"), "#posts_section");
+    posts_blogs_gen_project(await post_tag_searcher.return_found_tagged_items_excluded(posts_data_raw, 3, "3D", "Blender", "Animation", "Animated"), "#posts_section");
     
-    let req_data = await post_tag_searcher.return_found_tagged_items(posts_data_raw, 4, "3D", "Blender");
+    let req_data = await post_tag_searcher.return_found_tagged_items(posts_data_raw, 4, "3D", "Blender", "Animation", "Animated");
     manager_3d.Generate_3D_item(req_data, document.getElementById("parent_3D_grid")!)
 
 })();

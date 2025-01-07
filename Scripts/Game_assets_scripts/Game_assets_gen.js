@@ -56,7 +56,6 @@ const game_assets_generator = (function () {
                 normal_link.type = "button";
                 normal_link.textContent = btn.label ? btn.label : "";
                 if (btn.action != null) {
-                    console.log(btn.additional_info);
                     normal_link.addEventListener("click", () => Manage_action_string(btn.action, itm, btn.additional_info));
                 }
                 links.appendChild(normal_link);

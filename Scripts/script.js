@@ -17,8 +17,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         scroll_to_id.hook_to_elements(...document.querySelectorAll(".hash_creator"));
         var posts_response = yield fetch("/JSON_data/Blogs_posts/Blogs_and_posts_data.json");
         var posts_data_raw = yield posts_response.json();
-        posts_blogs_gen_project(yield post_tag_searcher.return_found_tagged_items_excluded(posts_data_raw, 3, "3D", "Blender"), "#posts_section");
-        let req_data = yield post_tag_searcher.return_found_tagged_items(posts_data_raw, 4, "3D", "Blender");
+        posts_blogs_gen_project(yield post_tag_searcher.return_found_tagged_items_excluded(posts_data_raw, 3, "3D", "Blender", "Animation", "Animated"), "#posts_section");
+        let req_data = yield post_tag_searcher.return_found_tagged_items(posts_data_raw, 4, "3D", "Blender", "Animation", "Animated");
         manager_3d.Generate_3D_item(req_data, document.getElementById("parent_3D_grid"));
     });
 })();
